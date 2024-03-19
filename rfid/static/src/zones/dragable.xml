@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rfid.dragableZones" owl="1">
+
+
+        <div id="Chart" class="Chart"> 
+            <div class="mouseEventDiv">
+                <span id="mousEvent" class="material-symbols-outlined">drag_handle</span>
+            </div>
+            <div id='DataDiv'>
+            </div>
+        </div>
+    </t>
+</templates>
+
+
+
+
+<!-- 
+// Get a reference to the first child div with the specified class
+const childDiv = document.getElementsByClassName('o_dialog_container modal-open')[0];
+
+// Get a reference to the parent div
+const parentDiv = document.getElementById('DONNEESDIV');
+
+// Append the child div to the parent div
+parentDiv.appendChild(childDiv);
+-->

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_is_bav_bacs_google_map" model="ir.ui.view">
+        <field name="name">view.is_bav.bacs.google_map</field>
+        <field name="model">is_bav.bacs</field>
+        <field name="arch" type="xml">
+            <google_map string="BACS" js_class="google_map_bav_avatar"
+                        lat="latitude"
+                        color="#228B22"
+                        marker_icon="flag"
+                        lng="longitude"
+                        sidebar_title="numero"
+                        sidebar_subtitle="adresse"
+                        sidebar_avatar="image32">
+    
+                <field name="latitude"/>
+                <field name="longitude"/> 
+                <field name="color"/>
+                <field name="numero"/>
+                <field name="adresse"/>
+                <field name="marker_color"/>
+            </google_map>
+        </field>
+    </record>
+            
+    <record id="action_bacs_form_view3" model="ir.actions.act_window.view">
+        <field eval="3" name="sequence"/>
+        <field name="view_mode">google_map</field>
+        <field name="view_id" ref="is_bav_google_map.view_is_bav_bacs_google_map"/>
+        <field name="act_window_id" ref="is_bav.action_window_bacs0"/>
+    </record>
+
+    <record id="action_view_is_bav_google_map" model="ir.actions.act_window">
+        <field name="name">Google Map</field>
+        <field name="res_model">is_bav.bacs</field>
+        <field name="view_mode">google_map</field>
+        <field name="view_id" ref="is_bav_google_map.view_is_bav_bacs_google_map"/>
+        <field name="domain">[]</field>
+    </record>
+
+</odoo>

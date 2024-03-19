@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_is_bav_typebacs,is_bav.typebacs,model_is_bav_typebacs,tr_super_admin,1,1,1,1
+access_is_bav_bacs,is_bav.bacs,model_is_bav_bacs,tr_super_admin,1,1,1,1
+access_is_bav_tags,is_bav.tags,model_is_bav_tags,tr_super_admin,1,1,1,1
+access_is_bav_capniv,is_bav.capniv,model_is_bav_capniv,tr_super_admin,1,1,1,1
+access_is_bav_types,is_bav.types,model_is_bav_types,tr_super_admin,1,1,1,1
+access_is_bav_frequences,is_bav.frequences,model_is_bav_frequences,tr_super_admin,1,1,1,1
+access_is_bav_categories,is_bav.categories,model_is_bav_categories,tr_super_admin,1,1,1,1
+access_is_bav_marque,is_bav.marque,model_is_bav_marque,tr_super_admin,1,1,1,1
+access_is_bav_equipement,is_bav.equipement,model_is_bav_equipement,tr_super_admin,1,1,1,1
+access_is_bav_state,is_bav.state,model_is_bav_state,tr_super_admin,1,1,1,1
+access_is_bav_service_type,is_bav.service_type,model_is_bav_service_type,tr_super_admin,1,1,1,1
+access_is_bav_log_services,is_bav.log_services,model_is_bav_log_services,tr_super_admin,1,1,1,1

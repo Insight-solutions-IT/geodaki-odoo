@@ -1,0 +1,334 @@
+<odoo>
+  <data>
+
+    <!-- <record model="ir.ui.view" id="view_reclamation_form">
+      <field name="name">reclamation.form</field>
+      <field name="model">is_dashboard.reclamation</field>
+      <field name="arch" type="xml">
+          <form>
+              <sheet>
+                  <group>
+                      <field name="date_modification"/>
+                      <field name="description"/>
+                      <field name="devicename"/>
+                      <field name="ident"/>
+                      <field name="imei"/>
+                      <field name="imgurl"/>
+                      <field name="istodo"/>
+                      <field name="statuts"/>
+                      <field name="ville"/>
+                      <field name="client"/>
+                      <field name="device"/>
+                      <field name="product"/>
+                      <field name="reference" widget="many2many_tags"/>
+                      <field name="probleme" widget="many2many_tags"/>
+                      <field name="solution" widget="many2many_tags"/>
+                      <field name="datej"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+  </record> -->
+  <!-- Tree View -->
+  <!-- <record model="ir.ui.view" id="view_reclamation_tree">
+      <field name="name">reclamation.tree</field>
+      <field name="model">is_dashboard.reclamation</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="date_modification"/>
+              <field name="description"/>
+              <field name="devicename"/>
+              <field name="ident"/>
+              <field name="imei"/>
+              <field name="istodo"/>
+              <field name="statuts"/>
+              <field name="ville"/>
+              <field name="datej"/>
+          </tree>
+      </field>
+  </record> -->
+
+  <!-- <record id="res_users_view_form" model="ir.ui.view">
+    <field name="name">res.users.preferences.form.inherit</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="hr.res_users_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='login']" position="after">
+        
+        <label for="ville" string="Ville"></label><br></br>
+        <field placeholder="Ville" name="ville"/>
+      </xpath>
+    </field>
+  </record> -->
+
+  <record id="view_dashboard_tree" model="ir.ui.view">
+    <field name="name">is_dashboard.dashboard.tree</field>
+    <field name="model">is_dashboard.dashboard</field>
+    <field name="arch" type="xml">
+        <tree>
+          <!-- <field name="vehId"/> -->
+          <field name="device" optional="hide"/>
+          <field name="datej" optional="show"/>
+          <field name="litres_consommes"/>
+          <field name="heures_travaillees"/>
+          <field name="km_total"/>
+          <field name="kg_CO2"/>
+            
+          
+            
+            <field name="moyenne_accelerations"/>
+            <field name="moyenne_freinage"/>
+            <field name="acces_decharge"/>
+            <field name="acces_points_transfert"/>
+            
+            <field name="compactions_dechets"/>
+            <field name="cycles_leve_conteneur"/>
+            <field name="heures_activation_pompe"/>
+            <field name="moyenne_vitesses"/>
+            <field name="max_vitesse"/>
+            <field name="exces_vitesse_60"/>
+            <field name="exces_vitesse_80"/>
+            <field name="exces_vitesse_100"/>
+            <field name="exces_vitesse_120"/>
+            <field name="moyenne_tonnage_au_vidage"/>
+            <field name="max_temperature_moteur"/>
+            <field name="arrets_moins_5min"/>
+            <field name="arrets_plus_5min"/>
+            
+            <field name="pt_dechets_verts"/>
+            
+            <field name="allumages_extinctions"/>
+            <field name="demarrages_non_autorises"/>
+            <field name="chargement_dechargement_amplirolls"/>
+            <field name="entrees_sorties_parc"/>
+            <field name="deltaT_entrees_sorties_parc"/>
+            <field name="km_voiries_lavees"/>
+            <field name="km_voiries_brossees"/>
+            <field name="km_plus_300km_par_jour"/>
+            <field name="sorties_zone_action"/>
+            <field name="max_vitesse_plus_100km_en_ville"/>
+            
+            <!-- <field name="last_time_decharge"/>
+                <field name="pourcentage_realisation_bacs"/>
+                <field name="km_dans_le_circuit"/>
+            <field name="km_hors_du_circuit"/>
+            <field name="pourcentage_respect_horaire_planifie"/>
+            <field name="bacs_collectes"/>
+            <field name="bacs_laves"/>
+            <field name="bacs_non_collectes"/>
+              <field name="services_realises"/>
+              <field name="acces_zones_interets"/>
+              <field name="sorties_circuit_theorique"/>
+              <field name="anomalies_declarees"/>
+            <field name="anomalies_techniques"/>
+              <field name="bacs_actifs_sur_terrain"/>
+              <field name="bacs_deplaces_plus_30m"/>
+              <field name="realisation_circuits"/>
+              <field name="m2_places_lavees"/>
+              <field name="km_blayes_mecaniquement"/>
+            <field name="last_time_transfert"/>
+            <field name="last_time_ampl"/> -->
+        </tree>
+    </field>
+</record>
+
+  <record id="view_bacs_tree" model="ir.ui.view">
+    <field name="name">is_dashboard.bacs.tree</field>
+    <field name="model">is_dashboard.bacs</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="nb_bacs" string="Bacs Actifs sur Terrain"/>
+        <field name="nb_bacs_deplace" string="Bacs Déplacés(30m)"/>
+        <field name="nb_bacs_coll" string="Bacs Collectés"/>
+        <field name="nb_bacs_lav" string="Bacs Lavés"/>
+        <field name="nb_bacs_no_coll" string="Bacs non Collectés"/>
+        <field name="realis_bac" string="Réalisation Bacs(%)"/>
+        <!-- <field name="last_date"/> -->
+       
+      </tree>
+    </field>
+  </record>
+<record id="view_dashboard_day_tree" model="ir.ui.view">
+  <field name="name">is_dashboard.dashboard_day.tree</field>
+  <field name="model">is_dashboard.dashboard_day</field>
+  <field name="arch" type="xml">
+      <tree>
+        <!-- <field name="vehId"/> -->
+        <!-- <field name="nb_calcule"/> -->
+        <field name="device" string="Véhicule"/>
+        <field name="datej" string="Date"/>
+        <field name="litres_consommes" string="Litres Consommés"/>
+        <field name="heures_travaillees" string="Heures Travaillées"/>
+        <field name="km_total" string="Km Total"/>
+        <field name="kg_CO2" string="Kg CO2"/>
+          
+        
+          
+          <field name="moyenne_accelerations" string="Moyenne Accélérations" optional="hide"/>
+          <field name="moyenne_freinage" string="Moyenne Freinage" optional="hide"/>
+          <field name="acces_decharge" string="Accès à la Décharge" optional="hide"/>
+          <field name="acces_points_transfert" string="Accès aux Points de Transfert" optional="hide"/>
+          
+          <field name="compactions_dechets" string="Compactions des Déchets" optional="hide"/>
+          <field name="cycles_leve_conteneur" string="Cycles du Lève Conteneur" optional="hide"/>
+          <field name="heures_activation_pompe" string="Heures Activation Pompe" optional="hide"/>
+          <field name="moyenne_vitesses" string="Moyenne Vitesses"/>
+          <field name="max_vitesse" string="Max Vitesse"/>
+          <field name="exces_vitesse_60" string="Excès de Vitesse 60" optional="hide"/>
+          <field name="exces_vitesse_80" string="Excès de Vitesse 80" optional="hide"/>
+          <field name="exces_vitesse_100" string="Excès de Vitesse 100" optional="hide"/>
+          <field name="exces_vitesse_120" string="Excès de Vitesse 120" optional="hide"/>
+          <!-- <field name="moyenne_tonnage_au_vidage" string="Moyenne Tonnage au Vidage" /> -->
+          <field name="max_temperature_moteur" string="Max Température Moteur" optional="hide"/>
+          <field name="arrets_moins_5min" string="Arrêts moins 5min" optional="hide"/>
+          <field name="arrets_plus_5min" string="Arrêts plus 5min" optional="hide"/>
+          
+          <field name="pt_dechets_verts" string="Pt Déchets Verts" optional="hide"/>
+          
+          <field name="allumages_extinctions" string="NB Allumages/Extinctions" optional="hide"/>
+          <field name="demarrages_non_autorises" string="Démarrages Non Autorisés" optional="hide"/>
+          <field name="chargement_dechargement_amplirolls" string="Chargement/Déchargement Amplirolls" optional="hide"/>
+          <!-- <field name="entrees_sorties_parc" string="Entrées/Sorties Parc" /> -->
+          <!-- <field name="deltaT_entrees_sorties_parc" string=""/> -->
+          <field name="km_voiries_lavees" string="Km Voiries Lavées" optional="hide"/>
+          <field name="km_voiries_brossees" string="Km Voiries Brossées" optional="hide"/>
+          <!-- <field name="km_plus_300km_par_jour" string=""/> -->
+          <field name="sorties_zone_action" string="Sorties de Zone d'Action" optional="hide"/>
+          <field name="max_vitesse_plus_100km_en_ville" string="Max Vitesse +100km en Ville" optional="hide"/>
+          <field name="km_dans_le_circuit" string="Km dans le Circuit" optional="hide"/>
+          <field name="km_hors_du_circuit" string="Km hors du Circuit" optional="hide"/>
+          <field name="pourcentage_respect_horaire_planifie" string="Respect Horaire Planifié(%)" optional="show"/>
+          
+          <field name="services_realises" string="Services Réalisés" optional="show"/>
+          <!-- <field name="acces_zones_interets" string=""/> -->
+          <field name="realisation_circuits" string="Réalisation Circuits" optional="show"/>
+          <field name="bacs_collectes" string="Bacs Collectés" optional="hide"/>
+          <field name="bacs_laves" string="Bacs Lavés" optional="hide"/>
+          
+          <!-- <field name="last_time_decharge"/>
+            <field name="sorties_circuit_theorique"/>
+              <field name="pourcentage_realisation_bacs"/>
+          <field name="bacs_non_collectes"/>
+            <field name="anomalies_declarees"/>
+          <field name="anomalies_techniques"/>
+            <field name="bacs_actifs_sur_terrain"/>
+            <field name="bacs_deplaces_plus_30m"/>
+            <field name="m2_places_lavees"/>
+            <field name="km_blayes_mecaniquement"/>
+          <field name="last_time_transfert"/>
+          <field name="last_time_ampl"/> -->
+      </tree>
+  </field>
+</record>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<record model="ir.actions.act_window" id="action_dashboard_tree">
+  <field name="name">Dashboard</field>
+  <field name="res_model">is_dashboard.dashboard</field>
+  <!-- <field name="view_mode">tree,form</field> -->
+</record>
+
+<record model="ir.actions.act_window" id="action_dashboard_day_tree">
+  <field name="name">Dashboard day</field>
+  <field name="res_model">is_dashboard.dashboard_day</field>
+  <!-- <field name="view_mode">tree,form</field> -->
+</record>
+
+
+<record model="ir.actions.act_window" id="action_bacs_tree">
+  <field name="name">bacs day</field>
+  <field name="res_model">is_dashboard.bacs</field>
+  <!-- <field name="view_mode">tree,form</field> -->
+</record>
+
+
+  <!-- Menu Item -->
+  
+  <menuitem id="is_dashboard.menu_root_a" name="IS Dashboard" web_icon="is_dashboard,static\deescription\odoo_icon.png"  />
+  
+  <menuitem id="menu_dashboard_tree" name="Dashboard Data" parent="is_dashboard.menu_root_a" action="action_dashboard_tree"/>
+  <menuitem id="menu_dashboard_day_tree" name="Dashboard day" parent="is_dashboard.menu_root_a" action="action_dashboard_day_tree"/>
+  <menuitem id="menu_bacs_tree" name="bacs day" parent="is_dashboard.menu_root_a" action="action_bacs_tree"/>
+ 
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="is_dashboard.list">
+      <field name="name">is_dashboard list</field>
+      <field name="model">is_dashboard.is_dashboard</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="is_dashboard.action_window">
+      <field name="name">is_dashboard window</field>
+      <field name="res_model">is_dashboard.is_dashboard</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="is_dashboard.action_server">
+      <field name="name">is_dashboard server</field>
+      <field name="model_id" ref="model_is_dashboard_is_dashboard"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="is_dashboard" id="is_dashboard.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="is_dashboard.menu_1" parent="is_dashboard.menu_root"/>
+    <menuitem name="Menu 2" id="is_dashboard.menu_2" parent="is_dashboard.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="is_dashboard.menu_1_list" parent="is_dashboard.menu_1"
+              action="is_dashboard.action_window"/>
+    <menuitem name="Server to list" id="is_dashboard" parent="is_dashboard.menu_2"
+              action="is_dashboard.action_server"/>
+-->
+  </data>
+
+  
+</odoo>

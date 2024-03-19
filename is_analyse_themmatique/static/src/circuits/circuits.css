@@ -1,0 +1,48 @@
+.o_list_export_xlsx{
+    display:  block !important;
+}
+.slide-hide{
+    display: none;
+  }
+  .slide-show{
+    display: block;
+  
+  }
+  
+  @media screen and (min-width: 684px) {
+
+    .vehicle-node1 {
+      width: 120px !important;
+      position: relative !important;
+      display: flex !important;
+      top: -25px;
+      /* left: 16px !important; */
+    }
+  }
+
+.imgblock{
+  margin-left: 35px !important;
+}
+#left_2{
+  height: 92vh;
+}
+#is_an_them_home_button{
+  height: 100%;
+
+}
+#is_an_them_Canvas{
+  height: 88%;
+}
+.filterok{
+  display: none;
+}
+@media screen and (max-width: 785px) {
+
+  /* for mobile */
+
+  #TreeDiag{
+    width: 100vw !important;
+  }
+}
+
+

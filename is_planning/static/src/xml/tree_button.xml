@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+   <t t-name="button_sale.ListView.Buttons2" t-inherit="web.ListView.Buttons">
+       <xpath expr="//*[@class='btn btn-primary o_list_button_add']" position="after">
+           <button type="button" class="btn btn-primary" style="margin-left: 10px;"   t-on-click="OnTestClick">
+               Generer planning
+           </button>
+       </xpath>
+      <xpath expr="//*[@class='btn btn-primary o_list_button_add']" position="attributes">
+           <!-- <attribute name="style">display: none;</attribute> -->
+       </xpath>
+   </t>
+</templates>

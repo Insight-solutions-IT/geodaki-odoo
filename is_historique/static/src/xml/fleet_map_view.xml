@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <div id="circuitDivHisto" t-name="is_historique.MapHistorique"  style="background-color:#71639E" class="o_action" owl="1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+        
+        
+        <div t-if="this.state.intervalError" class="detail">
+            <p t-esc="this.message"></p>
+            <input type="button" t-on-click="this.closePopUp" value="ok" class="btnDetail"></input>
+        </div>
+        <div class="split-pane" id="spl" style="background-color:#71639E ;display: flex;">
+            <div id="loader_ish" style="z-index:1001;position:absolute;top:0px;height:100%;width:100%;display: block;background-color: rgba(64, 64, 64, 0.7);">
+                <svg version="1.1" style=" position:relative;top:50%;left: 50%;height:10%;width:10%;transform: translateX(-50%) translateY(-50%);" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                    <path fill="#fff" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+                    <animateTransform 
+                        attributeName="transform" 
+                        attributeType="XML" 
+                        type="rotate"
+                        dur="2s" 
+                        from="0 50 50"
+                        to="360 50 50" 
+                        repeatCount="indefinite" />
+                    </path>
+                    <path fill="#fff" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+                        <animateTransform 
+                            attributeName="transform" 
+                            attributeType="XML" 
+                            type="rotate"
+                            dur="1s" 
+                            from="0 50 50"
+                            to="-360 50 50" 
+                            repeatCount="indefinite" />
+                    </path>   
+                    <path fill="#fff" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                    L82,35.7z">
+                        <animateTransform 
+                            attributeName="transform" 
+                            attributeType="XML" 
+                            type="rotate"
+                            dur="2s" 
+                            from="0 50 50"
+                            to="360 50 50" 
+                            repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>  
+            <div id="dev_ish" >
+
+                <!-- <div style="position: absolute;left:-76%;width:100%;display:flex;"> -->
+                  <div  style="width:100%;display:flex;">
+                      <button t-on-click="this.showHome" id="homeButton" style="display:none;position: relative;left:90%;transform: translateX(-100%);z-index:13;width: 90%;height: 30.5px;" class='btn btn-danger'  ><i class="fa fa-home" aria-hidden="true"></i></button>
+                      
+                    </div>
+                    <div style="padding-top:10px;" id="home">
+                
+                        <div id="logo"></div>
+                        <div style="overflow: auto;width: auto; background-color: white; border-radius: 7px; margin: 7px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;">
+                    
+                            <div style="display:inherit;height:auto;padding-top: 7px;padding-bottom: 7px;" class="container">
+                                <div class="row py-1">
+                                    <div class="col-2">
+                                        DU:
+                                    </div>
+                                    <div class="col">
+                                        <input type="date" style="margin-right:15px" t-att-value="this.state.currentStartDate" id="startDate"/>
+                                        <!-- <input type="date" style="margin-right:15px" value="2023-09-01" id="startDate"/> -->
+                                        <input type="time" style="    margin-left: -1px;" value="00:00" id="startTime"/>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        AU:
+                                    </div>
+                                    <div class="col">
+                                        <input type="date" style="margin-right:15px" t-att-value="this.state.currentEndDate" id="endDate"/>
+                                        <!-- <input type="date" style="margin-right:15px" value="2023-09-01"  id="endDate"/> -->
+                                        <input type="time" style="    margin-left: -1px;" value="23:59" id="endTime"/>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                       
+                   
+                    
+                    </div>  
+                   
+                   
+                <div  style="display:-webkit-inline-box;width: -webkit-fill-available; background-color: white; border-radius: 7px; margin: 7px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;">
+
+                    <input  style="border-radius: 7px;width: 100%" type="text" id="searchInputRef"></input>
+                    <button id="searchButton" style="background-color: transparent;left: 46%;transform: translate(-38px,2px);position: relative;border: none;border-radius: 7px;" class="">
+                        <i id="iconsearch" class="fa fa-search" style="background-color: white"></i>
+                        <i id="iconcancel" class="fa fa-times-circle-o" style="display:none"></i>
+
+                    </button>
+                </div>
+                <div id="jstree_demo_div"></div>
+                <t t-call="fleet_mon.devices_ish"/>
+                <div>
+                    <button t-on-click="()=>{this.showInfoMult(this.selVehicule)}" id="_is_hist_multi_btn" style="display: none" class="validBtn" >Valid</button>
+                </div>
+            </div>
+            <div id="infoMult" style="margin-top:32px;display:none;background: #ccc;">
+                
+                <table class="table_top" >
+                                            <thead>
+                                                <tr>
+                                                    <th class="thColor">
+                                                        
+                                                    </th>
+                                                    <th class="thColorText">
+                                                        VEHICULE
+                                                    </th>
+                                                    <th class="thColorText">
+                                                        DATE
+                                                    </th>                            
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody>
+                                                <tr class="tr" t-foreach="this.state.dateInfo" t-as="v" t-key="v.i"  t-attf-id="tr-#{v.i}"> 
+                                                    <td t-att-class="'mult-' + v.i" t-attf-style="background-color: #{v.color};">
+                                                        <span style="display:none"><t  t-esc="v.i"/>-<t  t-esc="v.id"/>  </span>
+                                                    </td>
+                                                    <td t-att-class="'mult-' + v.i" >
+                                                        <t t-esc="v.device"/>
+                                                    </td>
+                                                    
+                                                   
+                                                    <td t-att-class="'mult-' + v.i">
+                                                        <t t-esc="v.date"/>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </tbody>
+                                            </table>
+                    
+            </div>
+            <div id="info" style="margin-top:32px;display:none;">
+                
+                
+            <div id="resizable">
+                <table class="table_top" >
+                                            <thead>
+                                                <tr>
+                                                    <th class="thColor">
+                                                        
+                                                    </th>
+                                                     <th class="thColorText">
+                                                        VEHICULE
+                                                    </th>
+                                                    <th class="thColorText">
+                                                    DIST (KM)
+                                                    </th>
+                                                    <th class="thColorText">
+                                                    VITESSE MOY
+                                                    </th>
+                                                    <th class="thColorText">
+                                                    DATE
+                                                    </th>                            
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody>
+                                                <tr class="tr" t-foreach="this.state.dateInfo" t-as="v" t-key="v.i"  t-attf-id="tr-#{v.i}"> 
+                                                    <td t-att-class="'his-' + v.i" t-attf-style="background-color: #{v.color};">
+                                                        <span style="display:none"><t  t-esc="v.i"/> </span>
+                                                        
+                                                    </td>
+                                                    <td t-att-class="'his-' + v.i">
+                                                        <t t-esc="this.state.device"/>
+                                                    </td>
+                                                    <td t-att-class="'his-' + v.i">
+                                                        <t t-esc="v.sommD"/>  
+                                                    </td>
+                                                    <td t-att-class="'his-' + v.i">
+                                                        <t t-esc="v.sommV"/> 
+                                                    </td>
+                                                    <td t-att-class="'his-' + v.i">
+                                                        <t t-esc="v.date"/>
+                                                    </td>
+                                                </tr>
+                                               
+                                            </tbody>
+                                            </table>
+                </div>
+                <div id="handle"></div>
+                    
+                        
+                
+    
+    
+                <div style="height: 78vh;overflow: auto;border-radius: 7px; margin: 7px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;" id="detailInfo">
+                    <div style="height: 100%;">
+                        <div class="divInfoDevice" id="">
+                            <h1 style="justify-self: center;"><t t-esc="this.state.device"></t></h1>
+                            <!-- <p style="justify-self: center;"><t t-esc="this.device"></t></p> -->
+                            <img style="justify-self: center;" id="iconeVeh" ></img>
+
+                        </div>
+                        
+                        <div class="divInfoDevice" id="">
+                            <p style="justify-self: center;"> Du : <t t-esc="this.state.period[0]"/> <t t-esc="this.state.period[2]"/> Au : <t t-esc="this.state.period[1]"/> <t t-esc="this.state.period[3]"/></p>
+
+                        </div>
+                        
+                        
+                        
+                        <!-- ! lavage -->
+                        <div t-if="this.planificationDiv" class="divInfoDevice">
+                            <h2 style="justify-self: center;color:blue">PLANIFICATION THEORIQUE</h2>
+                            <t t-if="this.noPlanning==''">
+                                <div style="padding-left: 5px;">
+
+                                    <p>Circuit : <t t-esc="this.planificationInfo.circuit"/></p> <p> Groupe :<t t-esc="this.planificationInfo.groupe"/> </p>
+                                    <p>Fréquence : <t t-esc="this.planificationInfo.frequence"/>  Service :<t t-esc="this.planificationInfo.service"/> </p>  
+                                    <p>Heure Début : <t t-esc="this.planificationInfo.hdeb"/>  Heure Fin : <t t-esc="this.planificationInfo.hfin"/> </p>
+                                    <p>Conducteur :</p>
+                                </div>
+
+                            </t>
+                            <t t-if="this.noPlanning!=''">
+                                <p style="padding-left: 5px;"><t t-esc="this.noPlanning"></t></p>
+                            </t>
+                        </div>
+                            <!-- balayage mecanique + collecte + benne sat -->
+                       
+                            
+                        <div t-if="this.dhDiv" class="divInfoDevice">
+                            <h2 style="justify-self: center;color:blue">TEMPS D'ACTIVITE (GPS)</h2>
+                            <p style="padding-left: 5px;color:green">Temps Contact : <t t-esc="this.dhInfo.contact"/></p>
+                            <p style="padding-left: 5px;color:green">Temps de roulage : <t t-esc="this.dhInfo.roulage"/></p>  
+                            <p style="padding-left: 5px;color:red">Temps d'arrêt : <t t-esc="this.dhInfo.arret"/></p>
+                        </div>
+
+                            <!-- collecte > grue -->
+                      
+                            
+                        <div t-if="this.vdDiv" class="divInfoDevice">
+                            <h2 style="justify-self: center;color:blue">ACTIVITES (CAN BUS)</h2>
+                            <div style="padding-left: 5px;">
+
+                                <p >Kilométrage total parcouru : <t t-esc="this.vdInfo.km"/> Km</p>
+                                <p >Nombre d'heures travaillées: <t t-esc="this.vdInfo.activite"/> Heures</p>  
+                                <p >Carburant consommé : <t t-esc="this.vdInfo.gaz"/> Litre</p>
+                                <p>Jauge du niveau de carburant : <t t-esc="this.vdInfo.jc"/> % à <t t-esc="this.vdInfo.date"/></p>
+                                <p>Température maximale du liquide de refroidissement : <t t-esc="this.vdInfo.tmp"/>°C</p>
+                            </div>
+                        </div>
+
+                            <!-- balayage mecanique -->
+               
+                            
+                        <div t-if="this.bvDiv" class="divInfoDevice">
+                            <h2 style="justify-self: center;color:blue">BALAYAGE DE VOIRIE</h2>
+                            <p style="padding-left: 5px;">Total : <t t-esc="this.sommDistActive"/> Km</p>
+                        </div>
+                            <!-- collecte > grue +bom + benne sat  -->
+                        
+                            
+                        <div t-if="this.collecteDiv" class="divInfoDevice">
+                            <h2 style="justify-self: center;color:blue">COLLECTE</h2>
+                                <!-- grue -->
+                            <p style="padding-left: 5px;"><t t-esc="this.state.typeColl"></t></p>
+                                <!-- bom + benne sat -->
+                            
+                        </div>
+
+                            <!-- collecte -->
+                     
+                        <div t-if="this.dechargeDiv" class="divInfoDevice" id="">
+                            <h2 style="justify-self: center;color:blue">ENTREES DECHARGES</h2>
+                            <p style="padding-left: 5px;">Nombre de vidage : 0</p>
+                            
+                        </div>
+                        
+                            <!-- lavage -->
+                  
+                        <div t-if="this.lavegeDiv" class="divInfoDevice" id="">
+                            <h2 style="justify-self: center;color:blue">LAVAGE</h2>
+                                <!-- laveuse bacs -->
+                            <p style="padding-left: 5px;"><t t-esc="this.state.typeColl"></t></p>
+                                <!-- laveuse colonnes -->
+                            
+                            
+                        </div>
+                       
+                        
+                    </div>
+
+                </div>
+                
+            </div>
+            <div id="infoCircuit" style="overflow:auto;margin-top:32px;display:none;">
+                <!-- <h1>circuit</h1> -->
+                <div class="divTableCircuit">
+
+                    <table class="table_bottom" >
+                        <thead>
+                            <tr>
+                                <th  class="thColorText">
+                                    DATE
+                                </th>
+                                <th class="thColorText">
+                                    VEHICULE
+                                </th>
+                                <th class="thColorText">
+                                    HEURE DEBUT
+                                </th>
+                                <th class="thColorText">
+                                    HEURE FIN
+                                </th>
+                                <th class="thColorText">
+                                    CONDUCTEUR
+                                </th>
+                                <th class="thColorText">
+                                    SERVICE
+                                </th>         
+                                <th class="thColorText">
+                                    FREQUENCE
+                                </th>      
+                                <th class="thColorText">
+                                    GROUPE
+                                </th>                 
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr class="tr" t-foreach="this.state.infoPlanning" t-as="v" t-key="v.i" t-attf-id="bb_#{v.i}"> 
+                                
+                                <td t-att-class="'bb_' + v.idd">
+                                    <t t-esc="v.date"/>
+                                </td>
+                                <td t-att-class="'bb_' + v.idd">
+                                    <t t-esc="v.device"/>
+                                </td>
+                                <td t-att-class="'bb_' + v.idd">
+                                    <t t-esc="v.hdeb"/>
+                                </td>
+                                <td t-att-class="'bb_' + v.idd">
+                                    <t t-esc="v.hfin"/>
+                                </td>
+                                <td t-att-class="'bb_' + v.idd">
+                                    <t t-esc="v.con"/>
+                                </td>
+                                <td t-att-class="'bb_' + v.idd">
+                                    <t t-esc="v.service"/>
+                                </td>
+                                <td t-att-class="'bb_' + v.idd">
+                                    <t t-esc="v.frequence"/>
+                                </td>
+                                <td t-att-class="'bb_' + v.idd">
+                                    <t t-esc="v.groupe"/>
+                                </td>
+                            </tr>
+                            
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+           </div>
+
+
+           
+
+
+            <!-- <div class="split-pane__divider1" id="split-divider" style='background-color:
+            #ffffff;width:8px'></div> -->
+            
+            <div style="width:100%;" id="container-bottom">
+                <div style="width:100%;" id="mapid" t-ref="map_div" ></div>
+               
+                
+                <div id="info-split" style="display:none;position:relative;max-height:85%;transform:translateY(-100%);background-color:rgb(6, 8, 104)">
+                    <div style="display: grid;cursor: row-resize;" id="handle-bottom-div"><button style="height:12px;opacity:1;justify-self: center; " id="handle-bottom"><i class="fa-solid fa-grip-lines" style="position:relative;bottom:6px;font-size:16px;"></i></button></div>
+                    
+                    <div id="resizable-bottom">
+                        
+                        <p id="paragraph" style="justify-self: center;"> Du : <t t-esc="this.state.period[0]"/> <t t-esc="this.state.period[2]"/> Au : <t t-esc="this.state.period[1]"/> <t t-esc="this.state.period[3]"/></p>
+                        <!-- <div style="overflow: auto;" class="">
+
+                            <table class="table_bottom" >
+                                <thead>
+                                    <tr>
+                                        <th >
+                                            DATE
+                                        </th>
+                                        <th>
+                                            HEURE DEBUT
+                                        </th>
+                                        <th>
+                                            ADRESSE DEPART
+                                        </th>
+                                        <th>
+                                            HEURE FIN
+                                        </th>
+                                        <th>
+                                            ADRESSE ARRIVEE
+                                        </th>         
+                                        <th>
+                                            DUREE CONDUITE
+                                        </th>      
+                                        <th>
+                                            DISTANCE
+                                        </th>                
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr > 
+                                        <td >
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                1
+                                            
+                                        </td>
+                                        <td>
+                                           1
+                                        </td>
+                                        <td>
+                                           1
+                                        </td>
+                                        <td>
+                                           1
+                                        </td>
+                                        <td>
+                                           1
+                                        </td>
+                                    </tr>
+                                   
+                                </tbody>
+                                </table>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+        
+        
+        <button class='' id="hidebutton" >
+            <!-- <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                <path d="M135.2 117.4L109.1 192H402.9l-26.1-74.6C372.3 104.6 360.2 96 346.6 96H165.4c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32H346.6c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2V400v48c0 17.7-14.3 32-32 32H448c-17.7 0-32-14.3-32-32V400H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V400 256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+             -->
+             
+
+             <i id="ic-left" class="fa-solid fa-chevron-left "></i>
+             <i id="ic-right" style="display:none;" class="fa-solid fa-chevron-right"></i>
+              
+        </button>
+        
+
+      
+        
+        <link rel="stylesheet" type="text/css" href="/is_historique/static/css/map_view.css" />
+    </div>
+
+   
+</templates>

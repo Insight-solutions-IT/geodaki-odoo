@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+
+
+    <!-- Menu Home -->
+
+    <menuitem name="Gestion de la Zone d'action"
+              id="is_decoupage.menu_root"
+              sequence="10"
+              web_icon="is_decoupage,static/description/icon.png"/>
+
+    <!-- menu Zones -->
+
+    <menuitem name="Géofences"
+              id="is_decoupage.zones"
+              sequence="20"
+              parent="is_decoupage.menu_root"/>
+
+    <menuitem name="Géofences"
+              id="is_decoupage.menu_zones"
+              sequence="1"
+              parent="is_decoupage.zones"
+              action="action_is_decoupage_area"/>
+
+    <menuitem name="Provinces"
+              id="is_decoupage.menu_provinces"
+              sequence="2"
+              parent="is_decoupage.zones"
+              action="action_is_decoupage_provinces_map"/>
+
+     <!-- menu Circuits -->
+
+    <menuitem name="Circuits"
+              id="is_decoupage.circuits"
+              sequence="30"
+              parent="is_decoupage.menu_root"/>
+
+    <menuitem name="Routes"
+              id="is_decoupage.menu_routes"
+              sequence="1"
+              parent="is_decoupage.circuits"
+              action="action_is_decoupage_routes"/>
+
+    <menuitem name="Circuits"
+              id="is_decoupage.menu_circuits"
+              sequence="2"
+              parent="is_decoupage.circuits"
+              action="action_is_decoupage_circuits"/>
+
+      <!-- menu Configuration -->
+
+    <menuitem name="Configuration"
+              id="is_decoupage.config"
+              sequence="40"
+              parent="is_decoupage.menu_root"/>
+
+    <menuitem name="Nature des Géofences"
+              id="is_decoupage.menu_nature"
+              sequence="1"
+              parent="is_decoupage.config"
+              action="is_decoupage.action_window_nature"/>
+
+   <menuitem name="Méthode Calcul Taux"
+              id="is_decoupage.menu_methode"
+              sequence="2"
+              parent="is_decoupage.config"
+              action="action_is_decoupage_circuits_methodes"/>
+
+
+
+  </data>
+</odoo>

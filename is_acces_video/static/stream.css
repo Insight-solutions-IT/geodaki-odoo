@@ -1,0 +1,91 @@
+#StreamContainer {
+ 
+  width: 100%;
+  
+      padding-top: 74px;
+    display: flex;
+   /* height: 96.2vh !important; */
+    overflow: auto;
+    padding-bottom: 22px;
+}
+
+.StreamContainer {
+
+  /* display : none ;  */
+
+  height: 95%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: -60px;  */
+}
+
+.toggleStream {
+  height: 40px;
+  border: none;
+  background-color: #6e4aa7;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+}
+
+.deviceIcon_container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.containerHistory {
+  display: none;
+}
+
+.historique_li {
+  font-size: 17px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#myul {
+  margin-left: 22px;
+  list-style-type: disclosure-closed;
+  margin-top: 26px;
+}
+
+
+#searchHis_div{
+  display :none
+}
+
+
+@media screen and (max-width: 785px) { 
+div#my-video {
+    width: 99vw !important;
+    height: 73vh!important;
+}
+
+#STree{
+min-width: 101vw!important;
+}
+
+ }
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

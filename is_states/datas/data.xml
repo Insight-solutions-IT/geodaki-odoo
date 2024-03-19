@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="g1" model="querygroup">
+        <field name="namegroup">Rapports de Contenarisation</field>
+        <field name="description"></field>
+    </record>
+    <record id="g2" model="querygroup">
+        <field name="namegroup">Rapports des données des Véhicules</field>
+        <field name="description"></field>
+    </record>
+    <record id="g3" model="querygroup">
+        <field name="namegroup">Rapports de Lavage</field>
+        <field name="description"></field>
+    </record>
+    <record id="g4" model="querygroup">
+        <field name="namegroup">Rapports utilisation des Zones</field>
+        <field name="description"></field>
+    </record>
+    <record id="g5" model="querygroup">
+        <field name="namegroup">Rapports de Verifications et Diagnostique</field>
+        <field name="description"></field>
+    </record>
+    <record id="g6" model="querygroup">
+        <field name="namegroup">Gestion des Corbeilles</field>
+        <field name="description"></field>
+    </record>
+    <record id="g7" model="querygroup">
+        <field name="namegroup">Rapports des Bornes d'apports Volontaires (BAV)</field>
+        <field name="description"></field>
+    </record>
+    
+    <record id="g8" model="querygroup">
+        <field name="namegroup">Balayage Manuel</field>
+        <field name="description"></field>
+    </record>
+    <record id="g9" model="querygroup">
+        <field name="namegroup">Alertes</field>
+        <field name="description"></field>
+    </record>
+    <record id="g10" model="querygroup">
+        <field name="namegroup">Notifications</field>
+        <field name="description"></field>
+    </record>
+    <record id="g9" model="querygroup">
+        <field name="namegroup">Déchets Verts</field>
+        <field name="description"></field>
+    </record>
+
+</odoo>

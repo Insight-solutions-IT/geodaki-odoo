@@ -1,0 +1,18 @@
+.o_list_export_xlsx{
+    display:  block !important;
+}
+.slide-hide{
+    display: none;
+  }
+  .slide-show{
+    display: block;
+  
+  }
+  @media screen and (max-width: 785px) {
+
+    /* for mobile */
+  
+    #TreeDiag{
+      width: 100vw !important;
+    }
+  }

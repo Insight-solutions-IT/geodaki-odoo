@@ -1,0 +1,103 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="is_tools.list">
+      <field name="name">Tools list DH</field>
+      <field name="model">is_tools.dh</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="deviceid"/>
+          <field name="datej"/>
+          <field name="activite"/>
+          <field name="contact"/>
+          <field name="arret"/>
+          <field name="roulage"/>
+        </tree>
+      </field>
+    </record>
+
+    
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="is_tools.action_window">
+      <field name="name">List DH</field>
+      <field name="res_model">is_tools.dh</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record model="ir.ui.view" id="is_tools.list2">
+      <field name="name">Tools list VD</field>
+      <field name="model">is_tools.vd</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="deviceid"/>
+          <field name="datej"/>
+          <field name="dist"/>
+          <field name="vit"/>
+          <field name="vitmin"/>
+          <field name="vitmax"/>
+          <field name="gaz"/>
+          <field name="km"/>
+        </tree>
+      </field>
+    </record>
+
+    
+
+
+
+
+
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="is_tools.action_window2">
+      <field name="name">List VD</field>
+      <field name="res_model">is_tools.vd</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="is_tools.action_server">
+      <field name="name">is_tools server</field>
+      <field name="model_id" ref="model_is_tools_is_tools"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="is_tools" id="is_tools.menu_root"/>
+
+    <!-- menu categories -->
+    <menuitem name="Menu" id="is_tools.menu_1" parent="is_tools.menu_root"/>
+<!--
+    <menuitem name="Menu 2" id="is_tools.menu_2" parent="is_tools.menu_root"/>
+-->
+    <!-- actions -->
+    <menuitem name="List DH" id="is_tools.menu_1_list" parent="is_tools.menu_1"
+    action="is_tools.action_window"/>
+
+    <menuitem name="List VD" id="is_tools.menu_1_list1" parent="is_tools.menu_1"
+    action="is_tools.action_window2"/>
+<!--
+    <menuitem name="Server to list" id="is_tools" parent="is_tools.menu_2"
+              action="is_tools.action_server"/>
+-->
+  </data>
+</odoo>

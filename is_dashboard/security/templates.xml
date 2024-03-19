@@ -1,0 +1,136 @@
+<?xml version="1.0" ?>
+<odoo>
+
+
+  <record id="module_anomaly" model="ir.module.category">
+    <field name="name">Anomalies</field>
+    <field name="sequence">1</field>
+  </record>
+
+  <record id="an_user" model="res.groups">
+    <field name="name">Utilisateur</field>
+    <field name="category_id" ref="module_anomaly"/>
+  </record>
+  
+  <record id="an_dash" model="res.groups">
+    <field name="name">Dashboard</field>
+    <field name="category_id" ref="module_anomaly"/>
+  </record>
+  
+
+  <record id="an_agent" model="res.groups">
+    <field name="name">Agent GPS</field>
+    <field name="category_id" ref="module_anomaly"/>
+    <!-- <field name="implied_ids" eval="[(4, ref('an_user'))]"/> -->
+  </record>
+
+  <record id="an_user_global" model="res.groups">
+    <field name="name">Utilisateur global</field>
+    <field name="category_id" ref="module_anomaly"/>
+    <field name="implied_ids" eval="[(4, ref('an_user'))]"/>
+
+  </record>
+
+  <record id="an_admin" model="res.groups">
+    <field name="name">ADMIN</field>
+    <!-- <field name="implied_ids" eval="[(4, ref('an_user_global'))]"/> -->
+    <field name="category_id" ref="module_anomaly"/>
+  </record>
+
+
+  
+
+  <record id="siege" model="res.groups">
+      <field name="name">siege user</field>
+      <field name="category_id" ref="base.module_category_human_resources_attendances"/>
+      <field name="implied_ids" eval="[(4, ref('hr.group_hr_user')), (4, ref('hr_attendance.group_hr_attendance'))]"/>
+  </record>
+
+
+
+<!-- 
+
+
+
+  access_is_anomalies_ville,is_anomalies.ville,model_is_anomalies_ville,is_anomalies.an_user,1,1,1,1
+access_is_anomalies_solution,is_anomalies.solution,model_is_anomalies_solution,is_anomalies.an_user,1,1,1,1
+access_is_anomalies_probleme,is_anomalies.probleme,model_is_anomalies_probleme,is_anomalies.an_user,1,1,1,1
+access_is_anomalies_produit,is_anomalies.produit,model_is_anomalies_produit,is_anomalies.an_user,1,1,1,1
+access_is_anomalies_vehicule,is_anomalies.vehicule,model_is_anomalies_vehicule,is_anomalies.an_user,1,1,1,1
+access_is_anomalies_reclamation,is_anomalies.reclamation,model_is_anomalies_reclamation,is_anomalies.an_user,1,1,1,1
+access_is_anomalies_reference,is_anomalies.reference,model_is_anomalies_reference,is_anomalies.an_user,1,1,1,1
+access_is_anomalies_statut,is_anomalies.statut,model_is_anomalies_statut,is_anomalies.an_user,1,1,1,1
+access_is_anomalies_reclamation_history,is_anomalies.reclamation_history,model_is_anomalies_reclamation_history,is_anomalies.an_user,1,1,1,1
+ -->
+
+
+    <data noupdate="1">
+       <!-- Record rule for normal user -->
+
+
+<!-- <record id="fleet_user_rule" model="ir.rule">
+    <field name="name">Fleet User Rule</field>
+    <field name="model_id" ref="fleet.model_fleet_vehicle"/>
+    <field name="domain_force">[('group_utilisateurs', 'in',  user.groups_id.ids)]</field>
+    <field name="groups" eval="[(4, ref('fleet.fleet_group_user'))]"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="false"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+</record> -->
+
+
+<record id="anomaly_user_restricted_rule" model="ir.rule">
+  <field name="name">anomaly user rule</field>
+  <field name="model_id" ref="model_is_anomalies_reclamation"/> <!-- Ensure the model reference is correct -->
+  <field name="domain_force">[('client.id', '=', user.id)]</field> <!-- Changed the domain to filter based on create user ID -->
+  <field name="groups" eval="[(4, ref('siege'))]"/>
+  <field name="perm_read" eval="True"/>
+  <field name="perm_write" eval="False"/>
+  <field name="perm_create" eval="False"/>
+  <field name="perm_unlink" eval="False"/>
+</record>
+
+
+<record id="att_siege_" model="ir.rule">
+  <field name="name">siege rule</field>
+  <field name="model_id" ref="hr_attendance.model_hr_attendance"/> 
+  <field name="domain_force">[('testEMP', '=', False)]</field> 
+  <field name="groups" eval="[(4, ref('hr_attendance.group_hr_attendance_user'))]"/>
+  <field name="perm_read" eval="True"/>
+  <field name="perm_write" eval="False"/>
+  <field name="perm_create" eval="False"/>
+  <field name="perm_unlink" eval="False"/>
+</record>
+
+
+<record id="anomaly_admin_rule_" model="ir.rule">
+  <field name="name">anomaly admin rule</field>
+  <field name="model_id" ref="model_is_anomalies_reclamation"/> <!-- Ensure the model reference is correct -->
+  <field name="domain_force">[(1, '=', 1)]</field> <!-- Changed the domain to filter based on create user ID -->
+  <field name="groups" eval="[(4, ref('an_user_global'))]"/>
+  <field name="perm_read" eval="True"/>
+  <field name="perm_write" eval="True"/>
+  <field name="perm_create" eval="True"/>
+  <field name="perm_unlink" eval="True"/>
+</record>
+
+<record id="anomaly_agent_rule_2" model="ir.rule">
+  <field name="name">Anomaly Agent Rule</field>
+  <field name="model_id" ref="model_is_anomalies_reclamation"/>
+  <field name="domain_force">['&amp;' , ('group', 'in', user.groups_id.ids),('ville.agents', 'in', user.id)]</field>
+  <field name="groups" eval="[(4, ref('an_agent'))]"/>
+  <field name="perm_read" eval="True"/>
+  <field name="perm_write" eval="False"/>
+  <field name="perm_create" eval="True"/>
+  <field name="perm_unlink" eval="False"/>
+</record>
+
+
+
+
+<!-- Record rule for admin/manager -->
+
+
+    </data>
+</odoo>

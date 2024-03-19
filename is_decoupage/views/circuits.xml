@@ -1,0 +1,205 @@
+<odoo>
+    <data>
+
+        #--------------------------------------GESTION DES ROUTES -----------------------------------------
+        <record id="view_is_decoupage_provinces_area_form" model="ir.ui.view">
+            <field name="name">view.is_decoupage.routes.form</field>
+            <field name="model">is_decoupage.routes</field>
+            <field name="arch" type="xml">
+                <form string="Routes">
+                    <sheet>
+                        <header class="header-black">
+                            <button string="Convertir Geom en GShape" type="object"
+                                    name="update_routes_gshape_from_geom"
+                                    class="btn-red"/>
+                            <button string="Tous Convertir" type="object" name="update_routes_all_gshapes"
+                                    class="btn-green"/>
+                        </header>
+                        <group>
+                            <group>
+                                <field name="gshape_name" required="1" string="Nom" placeholder="Nom de la routes"/>
+
+                            </group>
+                            <group>
+                                <field name="gshape_type" invisible="1"/>
+                                <field name="gshape_area" string="Longueur (m)"/>
+                            </group>
+                        </group>
+                        <field name="gshape_description" placeholder="Description"/>
+                        <field name="gshape_paths" widget="google_map_drawing"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_is_decoupage_provinces_area_tree" model="ir.ui.view">
+            <field name="name">view.is_decoupage.routes.tree</field>
+            <field name="model">is_decoupage.routes</field>
+            <field name="arch" type="xml">
+                <tree string="Routes">
+                    <field name="id" string="Identifiant" class="center-label"/>
+                    <field name="gshape_name" string="Nom de la rue" class="center-label"/>
+                    <field name="gshape_area" string="Longueur (m)" class="center-label"/>
+                    <field name="gshape_description" class="center-label"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_is_decoupage_provinces_area_map" model="ir.ui.view">
+            <field name="name">view.is_decoupage.routes.map</field>
+            <field name="model">is_decoupage.routes</field>
+            <field name="arch" type="xml">
+                <google_map js_class="google_map_drawing"
+                            string="Routes"
+                            sidebar_title="gshape_name"
+                            sidebar_subtitle="id">
+                    <field name="id"/>
+                    <field name="gshape_name"/>
+                    <field name="gshape_description"/>
+                    <field name="gshape_type"/>
+                    <field name="gshape_radius"/>
+                    <field name="gshape_area"/>
+                    <field name="gshape_paths"/>
+                    <field name="gshape_height"/>
+                    <field name="gshape_width"/>
+                    <field name="gshape_polygon_lines"/>
+                </google_map>
+            </field>
+        </record>
+
+        <record id="action_is_decoupage_routes" model="ir.actions.act_window">
+            <field name="name">GESTION DES ROUTES</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">is_decoupage.routes</field>
+            <field name="view_mode">google_map,tree,form</field>
+        </record>
+
+
+        #--------------------------------------METHODES DE CALCUL DES TAUX -----------------------------------------
+        <record id="view_is_decoupage_circuits_methodes_form" model="ir.ui.view">
+            <field name="name">view.is_decoupage.circuits.methodes.form</field>
+            <field name="model">is_decoupage.circuits.methodes</field>
+            <field name="arch" type="xml">
+                <form string="Méthode de calcul du Taux de réalisation">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_is_decoupage_circuits_methodes_tree" model="ir.ui.view">
+            <field name="name">view.is_decoupage.circuits.methodes.tree</field>
+            <field name="model">is_decoupage.circuits.methodes</field>
+            <field name="arch" type="xml">
+                <tree string="Méthode de calcul du Taux de réalisation">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_is_decoupage_circuits_methodes" model="ir.actions.act_window">
+            <field name="name">GESTION DES METHODES DE CALCUL DU TAUX DE REALISATION</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">is_decoupage.circuits.methodes</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        #--------------------------------------GESTION DES CIRCUITS -----------------------------------------
+        <record id="view_is_decoupage_circuits_routes_tree" model="ir.ui.view">
+            <field name="name">view.is_decoupage.circuit_route_rel.tree</field>
+            <field name="model">is_decoupage.circuit_route_rel</field>
+            <field name="arch" type="xml">
+                <tree string="Rechercher une route">
+                    <field name="route_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="is_decoupage_circuits_view_search" model="ir.ui.view">
+            <field name="name">is_decoupage.circuits.search</field>
+            <field name="model">is_decoupage.circuits</field>
+            <field name="arch" type="xml">
+                <search string="CIRCUITS">
+                    <field name="name" string="Nom du circuit"/>
+                    <field name="Secteur"/>
+                    <field name="frequence_id" string="Fréquence"/>
+                    <field name="fonction_id" string="Fonction"/>
+                    <field name="group" string="Fonction"/>
+
+<!--                    <filter name="categorie" string="COLONNES" domain="[('categorie', '=', 'COLONNE')]"/>-->
+<!--                    <filter name="categorie" string="BACS" domain="[('categorie', '=', 'BAC')]"/>-->
+<!--                    <filter name="categorie" string="CORBEILLES" domain="[('categorie', '=', 'CORBEILLE')]"/>-->
+<!--                    <filter name="categorie" string="CAISSONS" domain="[('categorie', '=', 'CAISSON')]"/>-->
+                    <group expand="0" string="Group By">
+
+                        <filter name="Secteur" string="Secteur" domain="[]"
+                                context="{'group_by':'Secteur'}"/>
+                        <filter name="fonction_id" string="Fonction" domain="[]"
+                                context="{'group_by':'fonction_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="fonction_id" string="Fonction" icon="fa-building" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_is_decoupage_circuits_form" model="ir.ui.view">
+            <field name="name">view.is_decoupage.circuits.form</field>
+            <field name="model">is_decoupage.circuits</field>
+            <field name="arch" type="xml">
+                <form string="Circuits">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="Secteur"/>
+                            <field name="frequence_id"/>
+                            <field name="fonction_id"/>
+                            <field name="group"/>
+                            <field name="methode_id"/>
+                            <field name="color" string="Couleur du circuit" widget="color"/>
+                        </group>
+                        <notebook>
+                            <page string="Liste des Tronçons" name="TRONCONS">
+                                <field name="route_ids">
+                                    <tree editable="bottom">
+                                        <field name="route_id" widget="many2one"/>
+                                        <field name="sequence"/>
+                                        <field name="fusion"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_is_decoupage_circuits_tree" model="ir.ui.view">
+            <field name="name">view.is_decoupage.circuits.tree</field>
+            <field name="model">is_decoupage.circuits</field>
+            <field name="arch" type="xml">
+                <tree string="Circuit">
+                    <field name="name"/>
+                    <field name="Secteur"/>
+                    <field name="frequence_id"/>
+                    <field name="fonction_id"/>
+                    <field name="group"/>
+                    <field name="color" string="Couleur" widget="color"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_is_decoupage_circuits" model="ir.actions.act_window">
+            <field name="name">GESTION DES CIRCUITS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">is_decoupage.circuits</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

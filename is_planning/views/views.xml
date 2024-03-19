@@ -1,0 +1,200 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    
+
+    <record model="ir.ui.view" id="is_planning.list">
+      <field name="name">is_planning list</field>
+      <field name="model">is_planning.is_planning</field>
+      <field name="arch" type="xml">
+          <tree>
+          <header>
+					<button name="calculer_taux" string="Calculer le Taux"  type="object" class="btn-primary" />
+				</header>
+              <field name="deviceid"/>
+              <field name="circuitid"/>
+              <field name="hdeb"/>
+              <field name="hfin"/>
+              <field name="datej"/>
+          </tree>
+      </field>
+  </record>
+
+  <record model="ir.ui.view" id="is_planning.list_default">
+    <field name="name">is_planning list</field>
+    <field name="model">is_planning.planning_val</field>
+    <field name="arch" type="xml" >
+
+            <tree>
+             <header>
+					<button name="openWizard" string="Generer planning"  type="object" class="btn-primary" />
+				</header>
+                <field name="circuitid"/>
+            </tree>
+        
+    </field>
+</record>
+
+
+<record id="is_planning_default_view_search" model="ir.ui.view">
+            <field name="name">is_planning.default.search</field>
+            <field name="model">is_planning.planning_val</field>
+            <field name="arch" type="xml">
+                <search string="planning par default">
+                    <field name="circuitid" string="Nom du circuit"/>
+                    
+
+<!--                    <filter name="categorie" string="COLONNES" domain="[('categorie', '=', 'COLONNE')]"/>-->
+<!--                    <filter name="categorie" string="BACS" domain="[('categorie', '=', 'BAC')]"/>-->
+<!--                    <filter name="categorie" string="CORBEILLES" domain="[('categorie', '=', 'CORBEILLE')]"/>-->
+<!--                    <filter name="categorie" string="CAISSONS" domain="[('categorie', '=', 'CAISSON')]"/>-->
+                    <searchpanel>
+                        <field name="zone" string="zone" icon="fa-building" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+
+    <record model="ir.ui.view" id="is_planning.default">
+      <field name="name">planning</field>
+      <field name="model">is_planning.planning_val</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <label for="circuitid" string="Circuit ID"/>
+            <field name="circuitid"/><br></br>
+            <label for="zone" string="zone"/>
+            <field name="zone"/>
+            
+            <notebook>
+              <page string="Lundi">
+                  <group>
+                    <field name="deviceid_l"/>
+                    <field name="hdeb_l"/>
+                    <field name="hfin_l"/>
+                    <!-- <field name="datej_l"/> -->
+                    <field name="driver_l"/>
+                    <field name="driver2_l"/>
+                  </group>
+              </page>
+              <page string="Mardi">
+                <group>
+                  <field name="deviceid_mar"/>
+                  <field name="hdeb_mar"/>
+                  <field name="hfin_mar"/>
+                  <!-- <field name="datej_mar"/> -->
+                  <field name="driver_mar"/>
+                  <field name="driver2_mar"/>
+                </group>
+              </page>
+              <page string="Mercredi">
+                <group>
+                  <field name="deviceid_mer"/>
+                  <field name="hdeb_mer"/>
+                  <field name="hfin_mer"/>
+                  <!-- <field name="datej_mer"/> -->
+                  <field name="driver_mer"/>
+                  <field name="driver2_mer"/>
+                </group>
+              </page>
+              <page string="jeudi">
+                <group>
+                  <field name="deviceid_j"/>
+                  <field name="hdeb_j"/>
+                  <field name="hfin_j"/>
+                  <!-- <field name="datej_j"/> -->
+                  <field name="driver_j"/>
+                  <field name="driver2_j"/>
+                </group>
+              </page>
+              <page string="Vendredi">
+                <group>
+                  <field name="deviceid_v"/>
+                  <field name="hdeb_v"/>
+                  <field name="hfin_v"/>
+                  <!-- <field name="datej_v"/> -->
+                  <field name="driver_v"/>
+                  <field name="driver2_v"/>
+                </group>
+              </page>
+              <page string="Samedi">
+                <group>
+                  <field name="deviceid_s"/>
+                  <field name="hdeb_s"/>
+                  <field name="hfin_s"/>
+                  <!-- <field name="datej_s"/> -->
+                  <field name="driver_s"/>
+                  <field name="driver2_s"/>
+                </group>
+              </page>
+              <page string="Dimanche">
+                <group>
+                  <field name="deviceid_d"/>
+                  <field name="hdeb_d"/>
+                  <field name="hfin_d"/>
+                  <!-- <field name="datej_d"/> -->
+                  <field name="driver_d"/>
+                  <field name="driver2_d"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="is_planning.action_window">
+      <field name="name">is_planning window</field>
+      <field name="res_model">is_planning.is_planning</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="is_planning.action_window2">
+      <field name="name">is_planning window</field>
+      <field name="res_model">is_planning.planning_val</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="is_planning.action_server">
+      <field name="name">is_planning server</field>
+      <field name="model_id" ref="model_is_planning_is_planning"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+  
+
+    <!-- Top menu item -->
+
+    <menuitem name="Planning" id="is_planning.menu_root"  groups="is_planning.p_user" web_icon="is_planning,static/description/icon.png"/>
+    
+    <!-- menu categories -->
+
+    <menuitem name="Configuration" groups="is_planning.p_user" id="is_planning.config_planning" parent="is_planning.menu_root"/>
+    <!-- <menuitem name="Menu 2" id="is_planning.menu_2" parent="is_planning.menu_root"/> -->
+
+    <!-- actions -->
+
+    <menuitem name="Planification" groups="is_planning.p_user" id="is_planning.config_planning_planif" parent="is_planning.config_planning"
+              action="is_planning.action_window"/>
+    <menuitem name="par default" id="is_planning.default2" groups="is_planning.p_admin" parent="is_planning.config_planning"
+              action="is_planning.action_window2"/>
+    <!-- <menuitem name="Server to list" id="is_planning" parent="is_planning.menu_2"
+              action="is_planning.action_server"/> -->
+
+  </data>
+</odoo>

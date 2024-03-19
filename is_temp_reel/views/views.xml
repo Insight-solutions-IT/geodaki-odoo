@@ -1,0 +1,99 @@
+<odoo>
+  <data>
+   
+<record id="is_temp_reel_action" model="ir.actions.client">
+        <field name="name">Temp Reel</field>
+        <field name="tag">action_is_temp_reel1</field>
+        <field name="target">main</field>
+    </record>
+
+
+<record id="is_temp_reel_action2" model="ir.actions.client">
+        <field name="name">Temp Reel</field>
+        <field name="tag">action_is_temp_reel2</field>
+            <field name="target">main</field>
+
+    </record>
+    
+
+    <record id="is_temp_reel_action4" model="ir.actions.client">
+        <field name="name">Temp Reel</field>
+        <field name="tag">action_is_temp_reel4</field>
+            <field name="target">main</field>
+
+    </record>
+
+  <!-- <record id="is_temp_reel_action3" model="ir.actions.act_window">
+        <field name="name">Temp Reel</field>
+        <field name="res_model">data.display.model</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new icon
+            </p>
+        </field>
+    </record> -->
+    
+
+
+<!-- 
+    <record id="view_data_display_model_tree" model="ir.ui.view">
+    <field name="name">data.display.model.tree</field>
+    <field name="model">data.display.model</field>
+    <field name="arch" type="xml">
+        <tree string="Data Display Tree">
+            <field name="name_to_display" string="Name"/>
+            <field name="size_to_display" string="Size"/>
+        </tree>
+    </field>
+</record> -->
+
+
+        <record id="action_open_owl_view" model="ir.actions.client">
+    <field name="name">Open Owl View</field>
+    <field name="tag">action_is_temp_reel1</field>
+    <field name="context">{'default_device': record.device}</field>
+    <field name="type">ir.actions.client</field>
+</record> 
+
+
+     <record model="ir.ui.view" id="fleet_vehicle_form_inherit2">
+            <field name="name">fleet.vehicle.form</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml"> 
+ 
+                <!-- <xpath expr="//button[@name='open_assignation_logs']" position="before">
+                    <br></br>
+                    <button name="open_owl_view" icon="fa-map-marker" string="Suivre" type="object" class="oe_stat_button" />
+
+                </xpath> -->
+                  <xpath expr="//div[@name='button_box']" >
+                    
+                    <button name="open_owl_view" icon="fa-map-marker" string="Suivre" type="object" class="oe_stat_button" />
+
+                </xpath>
+               
+
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+    <!-- <menuitem id="is_temp_reel_menu" web_icon="is_temp_reel,static/description/icon.png" name="Temp Réel"   sequence="30"/> -->
+    <menuitem id="is_temp_reel_menu_root" web_icon="is_temp_reel,static/description/icon.png" name="Temps Réel"  action="is_temp_reel_action"   sequence="4"/>
+    <menuitem id="is_temp_reel_menu_analyse"  name="Analyse"  parent="is_temp_reel_menu_root"  sequence="20"/>
+    <!-- <menuitem id="is_temp_reel_menu4" name="Temp Réel" parent="is_temp_reel_menu" action="is_temp_reel_action4"  sequence="1"/> -->
+    <menuitem id="is_temp_reel_menu1" name=" Par vehicule" parent="is_temp_reel_menu_analyse" action="is_temp_reel_action"  sequence="20"/>
+    <menuitem id="is_temp_reel_menu2" name=" Par circuit" parent="is_temp_reel_menu_analyse" action="is_temp_reel_action2"  sequence="25"/>
+    <menuitem id="is_temp_reel_menu3" name=" Par conducteur" parent="is_temp_reel_menu_analyse" action="is_temp_reel_action4"  sequence="30"/>
+    <!-- <menuitem id="is_temp_reel_menu3" name="test" parent="is_temp_reel_menu" action="is_temp_reel_action3"  sequence="10"/> -->
+    <menuitem id="is_temp_reel_menu_config" name="Configuration"  parent="is_temp_reel_menu_root" sequence="30"/>
+  </data>
+</odoo>

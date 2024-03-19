@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+   
+        <record id="action_owl_Stream" model="ir.actions.client">
+            <field name="name">Stream</field>
+            <field name="tag">is_acces_video.StreamVideo</field>
+        </record>
+        <record id="action_owl_Record" model="ir.actions.client">
+            <field name="name">Record Historique</field>
+            <field name="tag">is_acces_video.RecordHistorique</field>
+        </record>
+    </data>
+
+
+    <menuitem name="Accès Vidéo" id="menu_acces_video" sequence="10"  web_icon="is_acces_video,static/description/icon.png"   >
+        <menuitem name="Video Stream" id="menu_video_stream" sequence="10" action="action_owl_Stream"/>
+        <menuitem name="Record Historique" id="menu_video_Historique" sequence="10" action="action_owl_Record"/>
+    </menuitem>
+</odoo>

@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+<record id="action_open_execution" model="ir.actions.client">
+    <field name="name">Open Owl View</field>
+    <field name="tag">action_query_execution</field>
+    <!-- <field name="context">{'default_device': record.device}</field> -->
+    <field name="type">ir.actions.client</field>
+<field name="target">main</field>
+    </record>
+
+
+	
+	
+	<record id="querydeluxe_search" model="ir.ui.view">
+            <field name="name">querydeluxe.search</field>
+            <field name="model">querydeluxe</field>
+            <field name="arch" type="xml">
+                <search string="Etats">
+                    <field name="nomreq" string="Nom d'etat'"/>
+                    <field name="groupid"/>
+                   
+
+<!--                    <filter name="categorie" string="COLONNES" domain="[('categorie', '=', 'COLONNE')]"/>-->
+<!--                    <filter name="categorie" string="BACS" domain="[('categorie', '=', 'BAC')]"/>-->
+<!--                    <filter name="categorie" string="CORBEILLES" domain="[('categorie', '=', 'CORBEILLE')]"/>-->
+<!--                    <filter name="categorie" string="CAISSONS" domain="[('categorie', '=', 'CAISSON')]"/>-->
+                    <group expand="0" string="Group By">
+
+                        <filter name="groupid" string="group" domain="[]"
+                                context="{'group_by':'groupid'}"/>
+                      
+                    </group>
+                    <searchpanel>
+                        <field name="groupid" string="Group" icon="fa-building" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+
+	<record id="is_states_view_tree_admin" model="ir.ui.view">
+		<field name="name">Type a query tree</field>
+		<field name="model">querydeluxe</field>
+		<field name="arch" type="xml">
+
+	
+			<tree >
+			<!-- <tree   > -->
+			   <!-- <header>
+					<button name="execute" string="New"   class="btn-primary" />
+				</header> -->
+				<!-- <field name="name" string="Query"/> -->
+				<field      name="groupid" string="Groupe"/>
+				<!-- <field name="nomreq" string="Nom"/> -->
+                <!-- <field name="nomreq" widget="button" options="{'click': 'execute'}"/> -->
+
+                <field   name="nomreq"    widget="button" options="{'action': 'execute_from_field'}"/>
+
+				<button name="execute" type="object" string="choisir des paramètres" class="oe_highlight"/>
+
+				 
+			</tree>
+		</field>
+	</record>
+
+
+
+
+	<record id="is_states_view_form" model="ir.ui.view">
+		<field name="name">Type a query form</field>
+		<field name="model">querydeluxe</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<button name="print_result" string="Print PDF" type="object" class="oe_highlight" attrs="{'invisible':[('raw_output','in',['',[],False])]}"/>
+				</header>
+
+				<sheet>
+					<group string="Groupes">
+						<label string="Groupes :" for="groupid"/>
+						<div class="o_row">
+							<field name="groupid" widget="selection"/>
+							<!-- <button name="copy_query" type="object" class="btn-danger" string="Copy" /> -->
+						</div>
+						<field name="nomreq" />
+					</group>
+
+						<label string="Chart :" for="name"/><field name="chart" />
+					<group string="Type a query">
+						<label string="Query :" for="name"/>
+						<div class="o_row">
+							<field name="name" placeholder="SELECT * FROM res_partner" style="border-bottom: 1px solid blue"/>
+						</div>
+					</group>
+			<notebook>
+				<page string="Parametres" name="Parametres">
+					<field name="queryids">
+						<tree editable="bottom">
+							<!-- <field name="query_id" widget="many2one"/>
+							-->
+							<field  readonly="1" name="sequence"/> 
+							<!-- <field name="name"/>  -->
+							<field name="label"/> 
+							<field name="param"/> 
+							<field name="valeur"/> 
+							<field name="typeparams"/> 
+						</tree>
+					</field>
+				</page>
+			</notebook>
+
+
+
+
+					
+
+
+
+
+					<!-- <group>
+						<button name="execute" type="object" string="Execute" class="oe_highlight"/>
+					</group> -->
+
+					<group>
+						<label string=" " for="rowcount"/>
+						<div class="o_row">
+							<field name="rowcount" readonly="1" nolabel="1"/>
+						</div>
+					</group>
+
+
+					<!-- <group>
+						<label string=" " for="query_id"/>
+						<div class="o_row">
+							<field name="query_id" readonly="1" nolabel="1"/>
+						</div>
+					</group> -->
+				
+
+					<group>
+						<field name="html" readonly="1" nolabel="1"/>
+					</group>
+
+					<group>
+						<field name="show_raw_output"/>
+						<field name="raw_output" attrs="{'invisible':[('show_raw_output','=',False)]}"/>
+					</group>
+
+					<!-- <div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="activity_ids" widget="mail_activity"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div> -->
+			
+				</sheet>
+
+			</form>
+		</field>
+	</record>
+
+
+
+
+	<record id="is_states_view_tree" model="ir.ui.view">
+		<field name="name">Type a query tree</field>
+		<field name="model">querydeluxe</field>
+		<field name="arch" type="xml">
+
+	
+			<tree editable="top" create="false"    js_class="button_in_tree" >
+			<!-- <tree   > -->
+			   <!-- <header>
+					<button name="execute" string="New"   class="btn-primary" />
+				</header> -->
+				<!-- <field name="name" string="Query"/> -->
+				<field   readonly="1"   name="groupid" string="Groupe"/>
+				<!-- <field name="nomreq" string="Nom"/> -->
+                <!-- <field name="nomreq" widget="button" options="{'click': 'execute'}"/> -->
+
+                <field  readonly="1"  name="nomreq"    widget="button" options="{'action': 'execute_from_field'}"/>
+
+				<button name="execute" type="object" string="choisir des paramètres" class="oe_highlight"/>
+
+				 
+			</tree>
+		</field>
+	</record>
+
+
+	<record model='ir.actions.act_window' id='is_states_submenu_querydeluxe_action_admin'>
+        <field name="name">Reporting</field>
+        <field name="res_model">querydeluxe</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+		<field name="view_id" ref="is_states_view_tree_admin"/>
+       <field name="context">{ 'tree_view_ref':'is_states_view_tree_admin'}</field>   
+    </record>
+
+	<record model='ir.actions.act_window' id='is_states_submenu_querydeluxe_action'>
+        <field name="name">Etats</field>
+        <field name="res_model">querydeluxe</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+		<field name="view_id" ref="is_states_view_tree"/>
+       <field name="context">{ 'tree_view_ref':'is_states_view_tree'}</field>   
+    </record>
+
+	<record id="tips_queries_view_tree" model="ir.ui.view">
+		<field name="name">Memorize a query tree</field>
+		<field name="model">tipsqueries</field>
+		<field name="arch" type="xml">
+			<tree editable="bottom">
+				<field name="name" string="Query"/>
+				<field name="description" string="Description"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="tips_queries_view_search" model="ir.ui.view">
+        <field name="name">Search a query</field>
+        <field name="model">tipsqueries</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="name"/>
+				<field name="description"/>
+			</search>
+		</field>
+	</record>
+
+	<record model='ir.actions.act_window' id='is_states_submenu_tipsqueries_action'>
+        <field name="name">Examples</field>
+        <field name="res_model">tipsqueries</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+		<record id="groupes_queries_view_tree" model="ir.ui.view">
+		<field name="name">Groupes</field>
+		<field name="model">querygroup</field>
+		<field name="arch" type="xml">
+			<tree editable="bottom">
+				<field name="namegroup" string="Groupes"/>
+				<field name="description" string="Description"/>
+			</tree>
+		</field>
+	</record>
+
+
+	<record model='ir.actions.act_window' id='is_states_submenu_group_action'>
+        <field name="name">Groupes</field>
+        <field name="res_model">querygroup</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+
+
+	<menuitem id="is_states_menu" name="Etats" sequence="12" groups="is_states.et_super_admin,is_states.et_user" web_icon="is_states,static/description/icon.png"/>
+
+	<menuitem id="is_states_submenu_etats" parent="is_states.is_states_menu" action="is_states.is_states_submenu_querydeluxe_action" sequence="-1" groups="is_states.et_super_admin,is_states.et_user"/>
+	<menuitem id="is_states_submenu_querydeluxe" name="Reporting" parent="is_states.is_states_menu" action="is_states.is_states_submenu_querydeluxe_action_admin" sequence="-1" groups="is_states.et_super_admin"/>
+	<!-- <menuitem id="is_states_submenu_tipsqueries" parent="is_states.is_states_menu" action="is_states.is_states_submenu_tipsqueries_action" sequence="10" groups="is_states.group_is_states"/> -->
+	<menuitem id="is_states_submenu_config" name="Config" parent="is_states.is_states_menu" sequence="20" groups="is_states.et_super_admin"/>
+	<menuitem id="is_states_submenu_groupes" parent="is_states.is_states_submenu_config" action="is_states.is_states_submenu_group_action" sequence="20" groups="is_states.et_super_admin"/>
+</odoo>

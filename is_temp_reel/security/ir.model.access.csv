@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_is_bacs_icon_view,is.bacs.icon.view,model_is_bacs_icon_view,tr_super_admin,1,1,1,1
+access_fleet_vehicle_circuit_view,fleet_vehicle.circuit_view,model_fleet_vehicle_circuit_view,tr_super_admin,1,1,1,1
+access_fleet_vehicle_planing_view,fleet_vehicle.planing_view,model_fleet_vehicle_planing_view,tr_super_admin,1,1,1,1
+access_is_bacs_icon_view,is.bacs.icon.view,model_is_bacs_icon_view,tr_admin,1,1,1,1
+access_fleet_vehicle_circuit_view,fleet_vehicle.circuit_view,model_fleet_vehicle_circuit_view,tr_admin,1,1,1,1
+access_fleet_vehicle_planing_view,fleet_vehicle.planing_view,model_fleet_vehicle_planing_view,tr_admin,1,1,1,1

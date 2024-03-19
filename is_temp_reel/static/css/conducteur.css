@@ -1,0 +1,37 @@
+/* i.jstree-icon.jstree-ocl{
+  height:68px !important;
+
+} */
+
+.jstree-default .jstree-anchor {
+  line-height: 24px;
+  height: fit-content !important;
+}
+a#3_anchor{
+  height:100px !important;
+}
+
+
+.popup-conducteur {
+  display: block; /* Initially hide the popup */
+  position: fixed; /* Position the popup relative to the viewport */
+  top: 99px; /* Center vertically */
+  right: 1%; /* Center horizontally */
+  /* transform: translate(-50%, -50%); Center the popup precisely */
+  background-color: #ffffff; /* Background color */
+  border: 1px solid #ccc; /* Border */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Box shadow for a slight elevation */
+  padding: 20px; /* Padding inside the popup */
+  text-align: center; /* Center-align text */
+  z-index: 99; /* Ensure the popup appears on top of other content */
+}
+
+.popup.active {
+  display: block; /* Display the popup when it has the 'active' class */
+}
+
+/* Style for the 'Conducteur Reserve' text */
+.popup-conducteur {
+  font-size: 20px;
+  color: #333;
+}

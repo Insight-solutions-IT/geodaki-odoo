@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+   <t t-name="is_acces_video.StreamVideoTemp" owl="1">
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+         />
+      <div class="Diagnostic">
+      <div  style="
+         display: flex;
+         width: 100%;
+         " class="allContainner">
+         <t t-call="is_acces_video.Tree"/>
+         <div style=" background-color: #dad4eda1;  height: 100vh;" class="chartMap">
+            <!-- <div style="text-align: left; padding: 20px">
+               <button class="buttonNav" style="width: 70px" onclick="_Live()">
+                 Live
+               </button>
+               <button class="buttonNav" onclick="_History()">
+                 Display history
+               </button>
+               </div> -->
+            <div id="StreamContainer" class='StreamContainer'>
+               <div style="
+    height: 100vh;
+" >
+                  <div class="deviceIcon_container">
+                     <p style=" text-align: center; font-size: 20px; font-weight: 600; " id="deviceName">   </p>
+                     <img  style=" top: -5px; position: relative; " id="device_icon"/>
+                  </div>
+                  <div style="display: flex;margin-bottom: 20px;">
+
+                     <div> 
+                        <button t-on-click="startStream" class="toggleStream" id="toggleStream">
+                        Waiting ...
+                        </button>
+                     </div>
+                     <div>
+                        <button
+                           style="background: none"
+                           class="toggleStream"
+                           t-on-click="Load"
+                           >
+                        <i
+                           style="color: black;font-size: 20px"
+                           class="fa-solid fa-arrows-rotate"
+                           ></i>
+                        </button>
+                     </div>
+                  </div>
+                  <div>
+                     <video
+                        id="my-video"
+                        class="video-js"
+                        controls='true'
+                        preload="auto"
+                        width="1000"
+                        height="600"
+                        data-setup="{}"
+                        style="z-index: 0;"
+                        >
+                        <source
+                           id="video-source"
+                           type="application/vnd.apple.mpegurl"
+                           src="http://ins-stock.ddns.net:5001/hls/ARTA5dd101.m3u8"
+                           />
+                     </video>
+                  </div>
+                  <!-- -->
+                             <div style=" position: relative; top: 19px; ">
+                      <p style="font-size: 16px;font-weight: 900;">Utilisateurs actuels :<span style="margin-left: 4px;color: green;font-weight: 600;"  id="activeUser"> 5</span></p>  
+                     </div>
+               </div>
+                         
+            </div>
+         </div>
+      </div>
+   </t>
+</templates>

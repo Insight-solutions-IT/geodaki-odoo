@@ -1,0 +1,25 @@
+<templates xml:space="preserve">
+    <div t-name="fleet_mon.conducteurs" class="o_action" owl="1" style="margin-top:10px">
+                <div class="o_map_sidebar" id="root1" t-ref="root" style="min-width : fit-content;max-width:none;background-color:white;margin-right:7px">
+                
+            <div class="m-2" >
+                <h3  id="veh">
+                    Conducteurs
+                </h3>
+            </div>
+           <input placeholder="Rechercher Vehicules ..." id="searchInputRef" class="inputSearch" t-ref="searchInputRef" />
+        <div t-ref="veh_list" id="vehicules">
+
+        </div>
+        <div t-ref="veh_lis2" id="vehicules2">
+
+        </div>
+        
+         <div t-ref="veh_lis3" id="vehicules3">
+
+        </div>
+        <!-- <button id="testB" t-on-click="render_bacs_data2">test</button> -->
+
+        </div>
+    </div>
+</templates>

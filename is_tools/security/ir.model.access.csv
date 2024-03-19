@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_is_tools_dh,is_tools.dh,model_is_tools_dh,base.group_user,1,1,1,1
+access_is_tools_vd,is_tools.vd,model_is_tools_vd,base.group_user,1,1,1,1

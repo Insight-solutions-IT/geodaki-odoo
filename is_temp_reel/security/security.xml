@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<odoo>
+<data noupdate="0">
+        <record id="module_Geodaki_category" model="ir.module.category">
+            <field name="name">Geodaki</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="module_temp_reel_category" model="ir.module.category">
+            <field name="name">Temp reel</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="module_Geodaki_category"/>
+        </record>
+        <record id="tr_user" model="res.groups">
+            <field name="name">Utilisateur</field>
+            <!-- <field name="implied_ids" eval="[(4, ref('fleet_group_user'))]"/> -->
+            <field name="category_id" ref="module_temp_reel_category"/>
+        </record>
+        <record id="tr_admin" model="res.groups">
+            <field name="name">Administrateur</field>
+            <field name="implied_ids" eval="[(4, ref('tr_user'))]"/>
+            <field name="category_id" ref="module_temp_reel_category"/>
+        </record>
+        <record id="tr_super_admin" model="res.groups">
+            <field name="name">Super Administrateur</field>
+            <field name="category_id" ref="module_temp_reel_category"/>
+            <field name="implied_ids" eval="[(4, ref('tr_admin'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+     </data>  
+    <!-- <data noupdate="1">
+        <record id="access_fleet_vehicle_icon" model="ir.module.access">
+        <field name="name">Fleet Vehicle Icon</field>
+        <field name="model_id" ref="model_fleet_vehicle_icon"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+    </data> -->
+</odoo>
+

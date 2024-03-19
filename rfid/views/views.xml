@@ -1,0 +1,196 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="rfid.list">
+      <field name="name">La lise des bacs</field>
+      <field name="model">is_bav.bacs</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="numero"/>
+          <field name="image_32" widget="image"/>
+        </tree>
+      </field>
+    </record>
+    <!--  -->
+    <record model="ir.ui.view" id="rfid.list_bac">
+      <field name="name">rfid Bacs</field>
+      <field name="model">is_rfid.vrfid</field>
+      <field name="arch" type="xml">
+        <tree export_xlsx="1">
+          <field name="numero"/>
+          <field name="device"/>
+          <field name="devicetime"/>
+          <field name="lat"/>
+          <field name="lon"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="rfid.action_window_bac">
+      <field name="name">La lise des bacs</field>
+      <field name="res_model">is_rfid.vrfid</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!--  -->
+    <record id="view_is_rfid_readed_bacs_tree" model="ir.ui.view">
+      <field name="name">is_rfid.readed_bacs.tree</field>
+      <field name="model">is_rfid.readed_bacs</field>
+      <field name="arch" type="xml">
+        <tree string="RFID Readed Bacs Tree">
+          <field name="numero"/>
+          <field name="device"/>
+          <field name="devicetime"/>
+          <field name="typeb"/>
+          <field name="lastlatitude"/>
+          <field name="lastlongitude"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="view_is_rfid_readed_bacs_search">
+      <field name="name">is_rfid.readed_bacs.search</field>
+      <field name="model">is_rfid.readed_bacs</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="device" />
+          <field name="numero"/>
+          <field name="devicetime"/>
+          <field name="typeb"/>
+        </search>
+      </field>
+    </record>
+    <record id="action_is_rfid_readed_bacs_tree" model="ir.actions.act_window">
+      <field name="name">RFID Readed Bacs Tree</field>
+      <field name="res_model">is_rfid.readed_bacs</field>
+      <field name="view_mode">tree</field>
+    </record>
+    <!--  -->
+    <record id="action_window_map" model="ir.actions.client">
+      <field name="name">Map RFID</field>
+      <field name="tag">action_window_map_owl</field>
+    </record>
+    <!--  -->
+    <record id="action_window_map_circuits" model="ir.actions.client">
+      <field name="name">Map RFID Circuits</field>
+      <field name="tag">action_window_map_owl_circuits</field>
+    </record>
+    <!--  -->
+    <record id="action_window_map_zones" model="ir.actions.client">
+      <field name="name">Map RFID Zones</field>
+      <field name="tag">action_window_map_owl_zones</field>
+    </record>
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+
+    <record model="ir.ui.view" id="fleet_vehicle_form_inherit_function">
+      <field name="name">fleet.vehicle.form</field>
+      <field name="model">fleet.vehicle</field>
+      <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+      <field name="arch" type="xml">
+
+
+        <xpath expr="//field[@name='location']" position="after">
+
+          <field name="fonction"/>
+
+        </xpath>
+
+
+      </field>
+    </record>
+    <!--  -->
+    <!--  -->
+
+    <!-- <record model="ir.ui.view" id="is_decoupage_coircuit_form_inh2">
+        <field name="name">is_decoupage.circuits.form</field>
+        <field name="model">is_decoupage.circuits</field>
+        <field name="inherit_id" ref="is_decoupage.view_is_decoupage_circuits_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fonction_id']" position="after">
+              <field name="groupe"/> 
+            </xpath>
+        </field>
+    </record> -->
+    <!--  -->
+
+    <record id="view_is_rfid_readed_bacs_cir_tree" model="ir.ui.view">
+      <field name="name">is_rfid.readed_bacs_cir.tree</field>
+      <field name="model">is_rfid.readed_bacs_in_cir</field>
+      <field name="arch" type="xml">
+        <tree string="RFID Readed Bacs Tree">
+          <field name="numero"/>
+          <field name="device"/>
+          <field name="devicetime"/>
+          <field name="typeb"/>
+          <field name="lastlatitude"/>
+          <field name="lastlongitude"/>
+        </tree>
+      </field>
+    </record>
+    <record id="action_is_rfid_readed_bacs_cir_tree" model="ir.actions.act_window">
+      <field name="name">RFID Readed Bacs Tree</field>
+      <field name="res_model">is_rfid.readed_bacs_in_cir</field>
+      <field name="view_mode">tree</field>
+    </record>
+    <record model="ir.ui.view" id="view_is_rfid_readed_bacs_search">
+      <field name="name">is_rfid.readed_bacs_in_cir.search</field>
+      <field name="model">is_rfid.readed_bacs_in_cir</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="device" />
+          <field name="numero"/>
+          <field name="devicetime"/>
+          <field name="typeb"/>
+        </search>
+      </field>
+    </record>
+
+
+    <record id="view_is_rfid_readed_bacs_in_zone_zone_tree" model="ir.ui.view">
+      <field name="name">is_rfid.readed_bacs_zone.tree</field> 
+      <field name="model">is_rfid.readed_bacs_in_zone</field>
+      <field name="arch" type="xml">
+        <tree string="RFID Readed Bacs Tree">
+          <field name="numero"/>
+          <field name="device"/>
+          <field name="devicetime"/>
+          <field name="typeb"/>
+          <field name="lastlatitude"/>
+          <field name="lastlongitude"/>
+        </tree>
+      </field>
+    </record>
+    <record id="action_is_rfid_readed_bacs_cir_tree" model="ir.actions.act_window">
+      <field name="name">RFID Readed Bacs Tree</field>
+      <field name="res_model">is_rfid.readed_bacs_in_zone</field>
+      <field name="view_mode">tree</field>
+    </record>
+    <record model="ir.ui.view" id="view_is_rfid_readed_bacs_in_zone_search">
+      <field name="name">is_rfid.readed_bacs_in_zone.search</field>
+      <field name="model">is_rfid.readed_bacs_in_zone</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="device" />
+          <field name="numero"/>
+          <field name="devicetime"/>
+          <field name="typeb"/>
+        </search>
+      </field>
+    </record>
+
+
+
+
+    <menuitem name="RFID" web_icon="rfid,static/description/icon.png" id="rfid.menu_root" />
+    <menuitem name="Analyse" id="rfid.map2" parent="rfid.menu_root">
+      <menuitem name="Analyse par vehicule" id="rfid.vehicle" action="action_window_map" />
+
+      <menuitem name="Analyse par circuit  " id="rfid.circuit" action="action_window_map_circuits" />
+
+      <menuitem name="Analyse par Zones  " id="rfid.zone" action="action_window_map_zones" />
+    </menuitem>
+    <menuitem name="Configuration" id="rfid.config" parent="rfid.menu_root" action="rfid.action_window_bac" />
+
+    <!--      Map menu       -->
+  </data>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="google_maps_template" name="Google Maps Template">
+        <div class="o_google_maps">
+            <div id="map" style="height: 500px;"></div>
+        </div>
+
+        <script>
+            odoo.define('google_maps_kml.GoogleMaps', function (require) {
+                var core = require('web.core');
+
+                $(document).ready(function () {
+                    function initMap() {
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 4,
+                            center: {lat: -28.643387, lng: 153.612224}
+                        });
+
+                        // Chargez le fichier KML dans la carte
+                        var ctaLayer = new google.maps.KmlLayer({
+                            url: 'provinces.kml',
+                            map: map
+                        });
+                    }
+
+                    // Ajoutez votre clé API Google Maps ici
+<!--                    $.getScript("https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap");-->
+                });
+            });
+        </script>
+    </template>
+</odoo>

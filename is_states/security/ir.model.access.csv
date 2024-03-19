@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_querygroup,querygroup access,is_states.model_querygroup,is_states.et_user,1,1,1,1
+access_queriespram,queriespram access,is_states.model_queriespram,is_states.et_user,1,1,1,1
+
+access_querydeluxe,querydeluxe access,is_states.model_querydeluxe,is_states.et_user,1,1,1,1
+access_pdforientation,pdforientation access,is_states.model_pdforientation,is_states.et_user,1,1,1,1
+access_tipsqueries,tipsqueries access,is_states.model_tipsqueries,is_states.et_user,1,1,1,1
+access_displayquery,displayquery access,is_states.model_displayquery,is_states.et_user,1,1,1,1
+access_queriespramwiz,queriespramwiz access,is_states.model_queriespramwiz,is_states.et_user,1,1,1,1
+

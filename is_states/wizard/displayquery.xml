@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+
+    <record id="displayquery_form" model="ir.ui.view">
+        <field name="name">displayquery.form</field>
+        <field name="model">displayquery</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                
+                        <!-- <field name="query_name" invisible="0" readonly="1"/> -->
+
+                    <!-- <field name="filter" widget="radio"/> -->
+                    <!-- <field name="d1" attrs="{'invisible': [('filter', '=', 'Non')]}"/>
+                    <field name="d2" attrs="{'invisible': [('filter', '=', 'Non')]}"/> -->
+<!-- 
+                        <field name="params" invisible="0" readonly="1"/> -->
+<!-- 
+                <group>
+                    <label for="dummy" string="Parameters"/>
+                    <field name="dummy" invisible="1" class="oe_inline"/>
+                    <div class="oe_inline" t-foreach="params" t-as="param">
+                        <label for="dummy" t-esc="param.field1"/>
+                        <field name="dummy" invisible="1" class="oe_inline"/>
+                        <input type="text" t-att-placeholder="param.field1" name="param_field" class="oe_inline"/>
+                        <br/>
+                    </div>
+                </group> -->
+
+
+
+					</group>
+
+            <notebook>
+				<page string="Parametres" name="Parametres">
+					<field name="queryids">
+						<tree editable="bottom"  create="false" delete="false">
+
+							<field name="label" readonly="1" force_save="1"/> 
+							<field name="valeur"/> 
+						
+						</tree>
+					</field>
+				</page>
+			</notebook>
+
+				</sheet>
+
+      
+
+
+                <footer>
+                     <button name="execute" type="object" string="Execute" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    
+</odoo>

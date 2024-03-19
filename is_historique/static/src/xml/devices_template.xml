@@ -1,0 +1,37 @@
+<templates xml:space="preserve">
+    <div t-name="fleet_mon.devices_ish"  owl="1" style="margin-top:10px">
+                <div  id="root1" t-ref="root" style="overflow: auto;overflow-wrap:anywhere;width : 270px;background-color:white">
+                
+            <div class="m-2" >
+                <h3  id="veh">
+                    
+                    <t t-if="!this.state.typeTreee">Véhicules </t>
+                    <t t-if="this.state.typeTreee">Circuits </t>
+                </h3>
+            </div>
+
+            <t t-if="!this.state.typeTreee">
+            
+                <div id="jstree_ish">
+                        
+                </div>
+            </t>
+
+            <t t-if="this.state.typeTreee">
+
+                <div  id="jstreeCir_ish">
+                    
+                </div>
+            </t>
+        <div t-ref="veh_list" id="vehicules" style="padding-bottom: 5px;">
+            
+        </div>
+        <div t-ref="veh_lis2" id="vehicules2">
+
+        </div>
+
+
+
+    </div>
+</div>
+</templates>

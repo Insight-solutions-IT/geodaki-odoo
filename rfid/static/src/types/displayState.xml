@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rfid.leftSide" owl="1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+        <div id="treeContanair" class="treeContanair">
+            <div class="divButton">
+                <span id="DisplayTree" t-on-click="DisplayTree" class="material-symbols-outlined">
+                delete
+                </span>
+            </div>
+            <div id="TreeDiag" class="TreeDiag">
+                <div id="left_1" class="slide-show">
+                    <div style="margin-left: 13px">
+                        <div class="dateDiv">
+                            <label for="startDate">Du:</label>
+                            <input class="startDate" id="date_du" type="date"></div>
+                            <div class="dateDiv">
+                                <input id="time_du" style="margin-left: 4%;" type="time" value="00:00"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="dateDiv">
+                                <label for="endDate">Au:</label>
+                                <input id="date_au" class="endDate" type="date"></div>
+                                <div class="dateDiv">
+                                    <input id="time_au" style="margin-left: 4%;" type="time" value="23:00"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="left_s">
+                        <input placeholder="Rechercher Vehicules ..." id="searchInputRef" class="inputSearch" t-ref="searchInputRef" />
+                        <div id="jstree" t-ref="jstree"></div>
+                        
+                    </div>
+                    <div id="etat_affichage">
+                            <table style="width:100%; height:50px">
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="etat_lavage_collect" id="etat_collecte" checked="true"/>
+                                        <label for="etat_collecte">Collecte </label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="etat_lavage_collect" id="etat_lavage"/>
+                                        <label for="etat_lavage"> Lavage </label>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="width:100%; height:50px">
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="type_cont" id="type_bac" checked="true"/>
+                                        <label for="type_bac">Bacs</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="type_cont" id="type_colonne"/>
+                                        <label for="type_colonne">Colonne</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="type_cont" id="type_caisson"/>
+                                        <label for="type_caisson">Caisson</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="type_cont" id="type_tous"/>
+                                        <label for="type_tous">Tous</label>
+                                    </td>
+                                </tr>
+                            </table>
+                            <button class="form-control btn btn-success" id="display_stat">Afficher l'etat de collecte des bacs</button>
+
+                        </div>
+
+
+
+                </div>  
+                <div id="left_2" class="slide-hide">
+                    <div id="is_rfid_home_button">
+                        <button class="form-control btn btn-danger fa fa-home" id="is_rfid_home"></button>
+                        <p>
+                            Véhicule: <span id="SelectedVehText"></span><br/>
+                            Chift   : <span id="chiftSelectedText"></span>
+                        </p>
+                    </div>
+                    <div id="is_rfid_Canvas" class="is_rfid_Canvas">
+                        <canvas id="is_rfid_myChart"></canvas>
+                    </div>
+                    <div id="is_rfid_table" class="is_rfid_table">
+                            
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template> 

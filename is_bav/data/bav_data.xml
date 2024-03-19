@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="is_bav_state_registered" model="is_bav.state">
+            <field name="name">Registered</field>
+            <field name="sequence">7</field>
+        </record>
+    </data>
+</odoo>

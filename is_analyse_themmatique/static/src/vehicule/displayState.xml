@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="is_an_them.leftSide" owl="1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+        <div id="treeContanair" class="treeContanair">
+            <div class="divButton">
+                <span id="DisplayTree" t-on-click="DisplayTree" class="material-symbols-outlined">
+                chevron_right
+                </span>
+            </div>
+            <div id="TreeDiag" class="TreeDiag">
+                <div id="left_1" class="slide-show">
+                    <div style="margin-left: 13px">
+                        <div class="dateDiv" style="width: 100%;">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <label for="startDate">Du:</label>
+                                    </td>
+                                    <td>
+                                        <input class="startDate form-control" id="date_du" type="datetime-local" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label for="endDate">Au:</label>
+                                    </td>
+                                    <td>
+                                        <input id="date_au" class="endDate form-control" type="datetime-local" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- <div class="dateDiv">
+                                <input id="time_au" style="margin-left: 4%;" type="time" value="23:00"></div>
+                            </div> -->
+                        </div>
+
+
+
+
+
+                        <div class="left_s">
+                            <input placeholder="Rechercher Vehicules ..." id="searchInputRef" class="inputSearch" t-ref="searchInputRef" />
+                            <div id="jstree" t-ref="jstree"></div>
+
+                        </div>
+                        <div id="etat_affichage">
+                            <div class="column" style="">
+                                <button class="btn btn-info w-33  " id="display_allfor_chariot">%                                    <span class="fa fa-cart-plus"></span>
+                                </button>
+                                <button class="btn btn-info w-33  " id="display_allfor_camion">%                                    <span class="fa fa-truck"></span>
+                                </button>
+                                <!-- <button class="btn btn-info w-25  " id="display_allfor_water">
+                                    <i class="fa fa-water"></i>
+                                </button> -->
+                                <button class="btn btn-info w-33" id="display_allfor_">
+                                    <i class="fa fa-close"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="left_2" class="slide-hide" style="width: 314px">
+                    <div id="is_an_them_home_button">
+                        <button class="form btn btn-danger fa fa-home" id="is_an_them_home" style="width: 33%;"></button>
+                        <button class="form btn btn-primary fa fa-bullseye" id="is_an_them_points" style="margin-left: 3%;width: 16%;"></button>
+                        <button class="form btn btn-primary fa fa-map-marker" id="is_an_them_positions" style="width: 16%;"></button>
+                        <button class="form btn btn-primary fa fa-road" id="is_an_them_circuit" style="width: 16%;"></button>
+                        <button class="form btn btn-primary fa fa-close" id="is_an_them_init_map" style="width: 16%;"></button>
+                        <p> Véhicule: <span id="SelectedVehText"></span>
+                            <br> Chift : <span id="chiftSelectedText">de 2023-12-06 00:00 au 2023-12-06 23:59</span>
+                            </p>
+                        </div>
+
+                        <div id="is_an_them_Canvas" class="is_an_them_Canvas">
+                            <t t-foreach="state.circuit_table" t-as="ligne" t-key="ligne.id">
+                                <!-- <t t-set="data" t-value="getData(zone)"/> -->
+                                <li t-attf-class="list-group-item d-flex justify-content-between align-items-center pb-1 pt-1 ">
+                                    <div class="o_kanban_record_has_image_fill">
+                                        <!-- <img src="is_bav/static/img/bacs/bpl770-vert.png" class="o_kanban_image_fill_left o_kanban_image_full o_image_40_cover" alt="Avatar"/> -->
+                                    </div>
+                                    <li  class="flex-grow-1 o_map_sidebar_record" data-toggle="tooltip" style="display: flex;height: 100%;line-height: 1.2cm;width:70%;">
+                                        <t t-if="ligne.circuit_name">
+
+
+                                            <div class="text-muted" t-esc="ligne.device" t-attf-style="background-color: #{ligne.color};width: 40%;color: white !important;font-weight: bold;padding-left:13px" />
+<!-- <div class="text-muted" t-esc="ligne.device" 
+                     t-attf-style="background-color:   #{ ligne.taux < 25 ? 'red': 'green' }; color: white !important; font-weight: bold;">
+                </div> -->
+
+                                            <div class="text-muted" t-esc="ligne.circuit_name" style="color: black !important;font-weight: bold;width:40%"/>
+                                            <div class="text-muted" t-esc="ligne.taux" style="color: black !important;font-weight: bold;width: 10%"/>
+                                            <div class="text-muted" style="color: black !important;font-weight: bold;">
+                                                <input type="checkbox" id="vehicle_to_pt" class="vehicle_to_pt" name="vehicle_to_pt" t-attf-value="ligne_#{ligne.circuit}_#{ligne.vehicule}">
+
+                                                    <!-- <i class="fa fa-arrow-right" t-attf-id="open_record_#{ligne.circuit}_#{vehicule}"></i> -->
+                                                 
+                                            </div>
+
+                                        </t>
+                                    </li>
+
+                                </li>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </template> 
+    

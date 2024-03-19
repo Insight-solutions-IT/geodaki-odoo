@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_is_decoupage,is_decoupage,model_is_decoupage,base.group_user,1,1,1,1
+access_is_decoupage_provinces,is_decoupage.provinces,model_is_decoupage_provinces,base.group_user,1,1,1,1
+access_is_decoupage_circuits,is_decoupage.circuits,model_is_decoupage_circuits,base.group_user,1,1,1,1
+access_is_decoupage_circuits_methodes,is_decoupage.circuits.methodes,model_is_decoupage_circuits_methodes,base.group_user,1,1,1,1
+access_is_decoupage_routes,is_decoupage.routes,model_is_decoupage_routes,base.group_user,1,1,1,1
+access_is_decoupage_circuit_route_rel,is_decoupage.circuit_route_rel,model_is_decoupage_circuit_route_rel,base.group_user,1,1,1,1

@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<odoo>
+<data noupdate="0">
+        
+        <record id="module_planning_category" model="ir.module.category">
+            <field name="name">Gestion des EPC</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="is_temp_reel.module_Geodaki_category"/>
+        </record>
+        <record id="d_user" model="res.groups">
+            <field name="name">Utilisateur</field>
+            <!-- <field name="implied_ids" eval="[(4, ref('fleet_group_user'))]"/> -->
+            <field name="category_id" ref="module_planning_category"/>
+        </record>
+        <record id="d_admin" model="res.groups">
+            <field name="name">Administrateur</field>
+            <field name="implied_ids" eval="[(4, ref('p_user'))]"/>
+            <field name="category_id" ref="module_planning_category"/>
+        </record>
+        <record id="d_super_admin" model="res.groups">
+            <field name="name">Super Administrateur</field>
+            <field name="category_id" ref="module_planning_category"/>
+            <field name="implied_ids" eval="[(4, ref('p_admin'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+
+        
+
+     </data>  
+    <!-- <data noupdate="1">
+        <record id="access_fleet_vehicle_icon" model="ir.module.access">
+        <field name="name">Fleet Vehicle Icon</field>
+        <field name="model_id" ref="model_fleet_vehicle_icon"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+    </data> -->
+</odoo>
+

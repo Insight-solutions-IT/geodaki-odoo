@@ -1,0 +1,117 @@
+<odoo>
+    <data>
+        #--------------------------------------NATURE DU GEOFENCE -----------------------------------------
+        <record model="ir.ui.view" id="is_decoupage_nature">
+            <field name="name">is_decoupage.detail.Nature</field>
+            <field name="model">is_decoupage.detail</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="is_decoupage.action_window_nature">
+            <field name="name">Nature du Géofence</field>
+            <field name="res_model">is_decoupage.detail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        #--------------------------------------GESTION DES ZONES -----------------------------------------
+        <record id="view_is_decoupage_area_form" model="ir.ui.view">
+            <field name="name">view.is_decoupage.form</field>
+            <field name="model">is_decoupage</field>
+            <field name="arch" type="xml">
+                <form string="Géofences">
+                    <sheet>
+                        <header class="header-black">
+                            <button string="Convertir GShape en Geom" type="object" name="update_geom_from_gshape" class="btn-red"/>
+                        </header>
+                        <group>
+                            <group>
+                                <field name="gshape_name" required="1" placeholder="Name"/>
+                                <field name="decoup_id" string="Nature de la zone"/>
+                                <field name="gshape_color" string="Couleur de la zone" widget="color"/>
+                            </group>
+                            <group>
+                                <field name="gshape_type" invisible="1"/>
+                                <label for="gshape_area"/>
+                                <div>
+                                    <field name="gshape_area" class="oe_inline" nolabel="1"/>
+                                    <span>m</span>
+                                    <sup>2</sup>
+                                </div>
+                                <label for="gshape_radius" attrs="{'invisible':[('gshape_type', '!=', 'circle')]}"/>
+                                <div attrs="{'invisible':[('gshape_type', '!=', 'circle')]}">
+                                    <field name="gshape_radius" class="oe_inline" nolabel="1"/>
+                                    <span>m</span>
+                                </div>
+                                <label for="gshape_width" attrs="{'invisible':[('gshape_type', '!=', 'rectangle')]}"/>
+                                <div attrs="{'invisible':[('gshape_type', '!=', 'rectangle')]}">
+                                    <field name="gshape_width" nolabel="1" class="oe_inline"/>
+                                    <span>m</span>
+                                </div>
+                                <label for="gshape_height" attrs="{'invisible':[('gshape_type', '!=', 'rectangle')]}"/>
+                                <div attrs="{'invisible':[('gshape_type', '!=', 'rectangle')]}">
+                                    <field name="gshape_height" nolabel="1" class="oe_inline"/>
+                                    <span>m</span>
+                                </div>
+                            </group>
+                        </group>
+                        <field name="gshape_description" placeholder="Description"/>
+                        <separator string="Polygon Lines" attrs="{'invisible':[('gshape_type', '!=', 'polygon')]}"/>
+                        <field nolabel="1" class="oe_inline" name="gshape_polygon_lines"
+                               attrs="{'invisible':[('gshape_type', '!=', 'polygon')]}"/>
+                        <field name="gshape_paths" widget="google_map_drawing"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_is_decoupage_area_tree" model="ir.ui.view">
+            <field name="name">view.is_decoupage.tree</field>
+            <field name="model">is_decoupage</field>
+            <field name="arch" type="xml">
+                <tree string="Géofences">
+                    <field name="decoup_id"/>
+                    <field name="gshape_name"/>
+                    <field name="gshape_type"/>
+                    <field name="gshape_area"/>
+                    <field name="gshape_radius"/>
+                    <field name="gshape_description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_is_decoupage_area_map" model="ir.ui.view">
+            <field name="name">view.is_decoupage.map</field>
+            <field name="model">is_decoupage</field>
+            <field name="arch" type="xml">
+                <google_map js_class="google_map_drawing"
+                            string="Géofences"
+                            sidebar_title="gshape_name"
+                            sidebar_subtitle="decoup_id">
+                    <field name="decoup_id"/>
+                    <field name="gshape_name"/>
+                    <field name="gshape_description"/>
+                    <field name="gshape_type"/>
+                    <field name="gshape_radius"/>
+                    <field name="gshape_area"/>
+                    <field name="gshape_paths"/>
+                    <field name="gshape_height"/>
+                    <field name="gshape_width"/>
+                    <field name="gshape_polygon_lines"/>
+                </google_map>
+            </field>
+        </record>
+
+        <record id="action_is_decoupage_area" model="ir.actions.act_window">
+            <field name="name">GESTION DES GEOFENCES</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">is_decoupage</field>
+            <field name="view_mode">google_map,tree,form</field>
+        </record>
+
+    </data>
+</odoo>

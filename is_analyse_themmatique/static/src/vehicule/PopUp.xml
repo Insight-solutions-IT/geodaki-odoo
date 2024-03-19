@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="is_analyse_themmatique.PopUp2" owl="1">
+
+        <article id="popUpArticle">
+            <t t-foreach="state.vtbd" t-as="ligne" t-key="ligne.id">
+                <div class="rc-accordion-card ">  
+                    <header id='HeadpopUp'   class="active">
+                        <h2 id="namevh"></h2>
+                        <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </span>
+                    </header>
+                    <div class="collapseD">
+    
+    
+                        <div id="devices" class="divInfocercuit">
+    
+    
+    
+                        </div>
+    
+                        <div class="divInfocercuit">
+                            <button class="point">
+                                <span id="rotatepoint" class="material-symbols-outlined">my_location</span>
+                            </button>
+                            <button class="bacs">
+                                <span id="rotateback" class="material-symbols-outlined">delete</span>
+                            </button>
+                            <button t-on-click='DisplayCircuit' class="circuit">
+                                <span id="rotatecircuit" class="material-symbols-outlined">add_road</span>
+                            </button>
+                            <button class="closeAll">
+                                <img style="height: 30px;text-align: center;position: relative;left: -2px;" src="/is_diagnostic/static/src/Components/Diagnostic/description/cancel.svg" />
+                            </button>
+                        </div>
+                        <div class="divButtoninfo">
+                            <button id="handleinfo" class="handleinfo">Info</button>
+                            <button id="handlerfid" class="handlerfid">RIFD</button>
+                        </div>
+    
+    
+                        <div class="divInfocercuittow">
+                            <button id="startAnimation" t-on-click="annimation">
+                                <span class="material-symbols-outlined">play_arrow</span>
+                            </button>
+                            <button id="pauseAnimation" t-on-click="pauseAnimation" class="pause">
+                                <span class="material-symbols-outlined">pause</span>
+                            </button>
+                            <button class="stop" style="background-color: red;">
+                                <span class="material-symbols-outlined">stop_circle</span>
+                            </button>
+                            <div id="probarContainer" class="probar">
+                                <button id="buttonspeed" class="buttonspeed">
+                                    <p id="numSpeed" class="numSpeed"> 2</p>
+    
+                                    <p style="
+                                            margin: 0 0 0 3px;
+                                            padding: 0;
+                                            color: white;
+                                            position: relative;
+                                            top: 3px;
+                                            font-size: 16px;
+                                            font-family: monospace;
+                                        ">x </p>
+    
+                                </button>
+                                <div dir="ltr" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" aria-valuetext="0%" style="display: initial; align-items: initial;">
+                                    <div class="progbar" style="height: 22px; background: rgb(224, 224, 222); border-radius: 14px; width: 100%; overflow: hidden;">
+                                        <div id="progressbar" style="height: 22px;background: rgb(0, 96, 255); transition: width 1s ease-in-out 0s; border-radius: inherit; display: flex; align-items: center; justify-content: flex-end;">
+                                            <span id="labelBar2" class="lblBar"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label id="labelBar" class="labelBar">0%</label>
+                            </div>
+                        </div>
+    
+                        <div id="info">
+                            <div>
+                                <div class="divone">
+                                    <p id="vhnamep">ARTA5303 CAMION</p>
+                                    <p id="startendDate" style="font-size: 14px; color: rgb(124, 124, 124);"></p>
+                                </div>
+                                <div class="divInfoContent">
+                                    <table class="tablenfo">
+                                        <tbody>
+                                            <tr>
+                                                <th>
+                                                    <strong>Véhicule</strong>
+                                                </th>
+                                                <th>
+                                                    <strong>DIST (KM)</strong>
+                                                </th>
+                                                <th>
+                                                    <strong>VIT MOY</strong>
+                                                </th>
+                                                <th>
+                                                    <strong>DATE</strong>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td style=" width: 125px; ">
+                                                    <marquee id="nametd"></marquee>
+                                                </td>
+                                                <td id='distance' ></td>
+                                                <td id='vitmoy'></td>
+                                                <td id="dateTd"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div></div>
+                        </div>
+    
+    
+                        <div id="rfid">
+                            <div>
+                                <div class="divone">
+                                    <p> INFOS RFID:</p>
+                                </div>
+                                <div class="divInfoContent">
+                                    <div>
+                                        <p>Début:</p>
+                                    </div>
+                                    <div class="divtitleInfo">
+                                        <p id="startdaterfid"></p>
+                                    </div>
+                                </div>
+                                <div class="divInfoContent">
+                                    <div>
+                                        <p>  Nombre de bacs relevés :</p>
+                                    </div>
+                                    <div class="divtitleInfo">
+                                        <p id='bacsnumber'></p>
+                                    </div>
+                                </div>
+                                <div class="divInfoContent">
+                                    <div>
+                                        <p> Fin:</p>
+                                    </div>
+                                    <div class="divtitleInfo">
+                                        <p id="enddaterfid"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+    
+    
+                    </div>
+                </div>
+            </t-foreach>
+        </article>
+    </t>
+</templates>

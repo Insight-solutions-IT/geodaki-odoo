@@ -1,0 +1,604 @@
+/* Set the size of the div element that contains the map */
+/* #map {
+    height: 100%;
+    The height is 400 pixels
+    width: 100%;
+    The width is the width of the web page
+    } */
+    
+    /* Thinner horizontal scrollbar */
+    ::-webkit-scrollbar {
+      height: 7px; /* Reduced height to make it thinner */
+      width: 7px; /* Reduced height to make it thinner */
+    }
+    
+    /* Track of the scrollbar */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    
+    /* Thumb of the scrollbar */
+    ::-webkit-scrollbar-thumb {
+      background: #91caff;
+      border-radius: 19px;
+    }
+    
+    /* Hover state of the thumb */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0079ff;
+    }
+    
+    
+         #dev {
+          height:80vh;
+          z-index: 102;
+        }
+        #hidebutton1 {
+          position: absolute; top: 5px; left: 60px;
+          z-index:1000
+        }
+        #origine{
+          position:relative;
+          top: 9px;
+          right:54px;
+          overflow: auto;
+          pointer-events: none;
+          background-color: transparent;
+          direction: rtl;
+          
+        }
+        .detailsss{
+          width: 112px;
+          height:42px
+        }
+    
+        #export{
+          position:absolute;top:89vh;left:0;margin:20px;height:20px;display:flex;justify-content:center
+        }
+    
+    
+        @media screen and (min-height: 667px) {
+          /* Styles for larger screens (PC) */
+          @media screen and (min-width: 500px) {
+            span.vehicle-device {
+              width: 100%;
+          }
+        #dev {
+          height:79vh;
+          z-index: 102;
+          margin-top: 42px;
+        }
+      }
+        #export{
+          position:absolute;top:89vh;left:0;margin:20px;height:20px;display:flex;justify-content:center
+        }
+      }
+    
+    @media screen and (min-width: 760px) {
+      /* Styles for larger screens (PC) */
+    #hidebutton1 {
+      transform:  translateY(-50%);
+    /* z-index: 102; */
+    top: 50%;
+      position: absolute; 
+      z-index:101;
+    }
+    #export{
+      left:0;margin:20px;height:20px;display:flex;justify-content:center
+    }
+    #origine{
+      position:relative;
+      top: 55px;
+      right:5px;
+      overflow: auto;
+      pointer-events: none;
+      background-color: transparent;
+      direction: rtl;
+      
+    }
+    .detailsss{
+      width: 300px;
+      justify-content: space-between;
+    padding: 10px;
+      /* height:35px; */
+    }
+    }
+    @media screen and (min-width: 995px) {
+      /* Styles for larger screens (PC) */
+    #hidebutton1 {
+      /* position: absolute; top: 38px; left: 15px; */
+      z-index:101;
+    }
+    }
+    
+      .icon{
+        fill:white
+      }
+        .detail{
+          z-index: 100;
+          position: fixed;
+          right: 50%;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          border: 2px solid rgb(44, 41, 41);
+          border-radius: 5px;
+          background-color:rgb(253, 252, 250) ;
+          width: 50%;
+          height: auto;
+          opacity: 1;
+          display: none;
+          padding-left: 10px;
+          padding-bottom: 5px;
+      }
+      .detail button{
+        border: 1px solid red;
+        border-radius: 3px;
+        background-color: red;
+        position: absolute;
+        right: 0;
+    }
+        .rotate-animation {
+          animation: rotate 0.5s linear;
+      }
+      
+      @keyframes rotate {
+          0% {
+              transform: rotate(0deg);
+          }
+          100% {
+              transform: rotate(360deg);
+          }
+      }
+      
+    
+      /* i.jstree-icon.jstree-ocl{
+        height:100px !important;
+
+      } */
+        /* .splitter_panel {
+          position: relative;
+        }
+        .splitter_panel .vsplitter {
+            background-color: grey;
+            cursor: col-resize;
+            z-index:900;
+            width: 7px;
+        }
+        
+        .splitter_panel .hsplitter {
+            background-color: #5F5F5F;
+            cursor: row-resize;
+            z-index: 800;
+            height: 7px;
+        }
+        .splitter_panel .vsplitter.splitter-invisible,
+        .splitter_panel .hsplitter.splitter-invisible {
+            background: none;
+        }
+        .splitter_panel .vsplitter, .splitter_panel .left_panel, .splitter_panel .right_panel,
+        .splitter_panel .hsplitter, .splitter_panel .top_panel, .splitter_panel .bottom_panel {
+            position: absolute;
+            overflow: auto;
+        }
+        .splitter_panel .vsplitter, .splitter_panel .left_panel, .splitter_panel .right_panel {
+          height: 100%;
+        }
+        .splitter_panel .hsplitter, .splitter_panel .top_panel, .splitter_panel .bottom_panel {
+          height: 100%;
+        }
+        .splitter_panel .top_panel, .splitter_panel .left_panel, .splitter_panel .vsplitter {
+           top: 0;
+        }
+        .splitter_panel .top_panel, .splitter_panel .bottom_panel, .splitter_panel .left_panel, .splitter_panel .hsplitter {
+           left: 0;
+        }
+        .splitter_panel .bottom_panel {
+           bottom: 0;
+        }
+        .splitter_panel .right_panel {
+           right: 0;
+        }
+        .splitterMask {
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1000;
+        }
+        body { font-family:'Roboto';} */
+    
+        /* .Tree_container{
+        
+          text-align: left;
+          margin-left: 12px;
+          width: 212px;
+      } */
+      
+      
+      
+      
+      .group_name {
+          font-size: 16px;
+          font-weight: 500;
+          font-family: inherit;
+          position: relative;
+          left: -25px;
+      }
+      .semigroup_name1 {
+          font-size: 16px;
+          font-weight: 500;
+          font-family: inherit;
+          position: relative;
+          left: -25px;
+      }
+      .semigroup_name {
+          font-size: 16px;
+          font-weight: 500;
+          font-family: inherit;
+          position: relative;
+          left: -25px;
+      }
+      
+      
+          .vehicle-node1 {
+              width: 100% !important;
+              position: relative;
+              display: -webkit-box;
+              display: -webkit-flex;
+              display: flex;
+              top: -25px;
+              left: -11px;
+          }
+          .vehicle-icon {
+              width: 20px;
+              height: 20px;
+          }
+          @media (max-width: 768px){
+            
+            .vehicle-node1 {
+              width: 200px;
+              position: relative;
+              display: -webkit-box;
+              display: -webkit-flex;
+              display: flex;
+              top: -41px;
+              left: 0px;
+          }
+          .imgblock {
+            /* margin-left: auto; */
+            /* display: flex; */
+            width: fit-content;
+            /* position: relative; */
+        }
+          }
+          .jstree-default .jstree-anchor {
+              width: 98% !important;
+           
+          }
+          .imgblock {
+              margin-left: auto;
+              display: flex;
+         
+          }
+          .jstree-default>.jstree-container-ul>.jstree-node{
+              padding: 4px;
+          }
+      
+          .inputSearch{
+              height: 27px;
+              width: 82%;
+              
+              margin: 9px 25px 11px 19px;
+              border-radius: 7px;
+          }
+      
+      
+          div#jstree {
+              overflow-y: auto;
+              width: 301px;
+              height: 100%;
+              overflow-x: hidden;
+          }
+    
+    
+    
+    
+    
+    
+    
+          /* Styles for vehicle-type */
+    .vehicle-type {
+      font-weight: bold;
+      color: #333;
+    }
+    
+    /* Styles for vehicle-info */
+    .vehicle-info {
+      font-style: italic;
+      color: #777;
+    }
+    
+    /* Styles for vehicle-date */
+    .vehicle-date {
+      font-size: 14px;
+      color: #999;
+    }
+    
+    /* Styles for vehicle-battery */
+    .vehicle-battery {
+      color: red;
+      font-weight: bold;
+    }
+    
+    /* Styles for <hr> elements inside .vehicle-info */
+    .vehicle-info hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 8px 0;
+    }
+    
+    /* Styles for <p> elements inside .vehicle-info */
+    .vehicle-info p {
+      font-weight: bold;
+      color: #333;
+    }
+    
+    
+    /* Styles for other elements as needed */
+    
+    
+    /* Style for the "Info" button */
+    .info-button {
+      background-color: transparent;
+      color: #7091F5; /* Text color */
+      border: 1px solid #7091F5; /* Border color */
+      padding: 8px 16px; /* Padding */
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .info-button-click {
+      background-color: #7091F5;
+      color: #fff; /* Text color */
+      border: 1px solid #7091F5; /* Border color */
+      padding: 8px 16px; /* Padding */
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .info-button:hover {
+      background-color: #7091F5; /* Background color on hover */
+      color: #fff; /* Text color on hover */
+    }
+    
+    /* Style for the "RFID" button */
+    .rfid-button {
+      background-color: transparent;
+      color: #007bff; /* Text color */
+      border: 1px solid #007bff; /* Border color */
+      padding: 8px 16px; /* Padding */
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    
+    .rfid-button-click {
+      background-color: #007bff;
+      color: #fff; /* Text color */
+      border: 1px solid #007bff; /* Border color */
+      padding: 8px 16px; /* Padding */
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .rfid-button:hover {
+      background-color: #007bff; /* Background color on hover */
+      color: #fff; /* Text color on hover */
+    }
+    
+    .rfid-svg{
+      fill: white;
+    }
+    
+    .delete-button{
+    background-color: #7091F5;
+    transition: backckground-color 0.3s ease;
+    }
+    .delete-button-click{
+      background-color: #ff0000;
+      transition: backckground-color 0.3s ease;
+      }
+    
+    
+    .circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 20px;
+        animation: glow 1s infinite alternate;
+    }
+    
+    /* Green circle */
+    .circle-green {
+      width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 10px;
+        color:white;
+        animation: glow 1s infinite alternate;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, green, lime);}
+    
+    /* Red circle */
+    .circle-red {
+      width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 10px;
+        color:white;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, red, rgb(255, 95, 2));
+        animation: glow1 1s infinite alternate;
+    }
+    
+    /* Yellow circle */
+    .circle-yellow {
+      width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 10px;
+        color:rgb(112, 77, 77);
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, yellow, gold);
+        animation: glow2 1s infinite alternate;
+    }
+    .circle-legend {
+      width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 10px;
+        color:rgb(112, 77, 77);
+        /* display:flex; */
+        justify-content: center;
+        align-items: center;
+        direction: rtl;
+        position:absolute;
+        /* left: 94%; */
+        /* top:44px; */
+        right: -17px;
+          transform: translateX(-66%);
+          top:91px;
+          z-index: 100;
+        background: linear-gradient(to right, #71639E , #564885);
+        animation: glow4 1s infinite alternate;
+        /* direction: rtl; */
+        cursor: pointer; 
+    }
+    @media screen and (min-width: 760px) {
+      .circle-legend {
+        
+        width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          margin: 10px;
+          color:rgb(112, 77, 77);
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(to right, #71639E , #564885);
+          animation: glow4 1s infinite alternate;
+          direction: rtl;
+          position:absolute;
+          /* left: 94%; */
+          top:49px;
+          right: 17px;
+          transform: translateX(-100%);
+          z-index: 100;
+    
+      }
+      
+    
+    }
+    
+    /* Animation for glowing effect */
+    @keyframes glow {
+        0% {
+            box-shadow: 0 0 10px rgba(0, 128, 0, 0.5);
+        }
+        100% {
+            box-shadow: 0 0 20px rgba(0, 128, 0, 1);
+        }
+    }
+    
+    @keyframes glow2 {
+      0% {
+          box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+      }
+      100% {
+          box-shadow: 0 0 20px rgb(156, 50, 59);
+      }
+    }
+    
+    @keyframes glow3 {
+      0% {
+        box-shadow: 0 0 10px rgba(251, 255, 0, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 20px rgb(243, 240, 67);
+      }
+    }
+    @keyframes glow4 {
+      0% {
+          box-shadow: 0 0 10px #71639E;
+      }
+      100% {
+          box-shadow: 0 0 20px #564885;
+    
+      }
+    }
+    
+    
+    .container1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .box1 {
+      /* width: 100px;
+      height: 100px; */
+      border: 2px solid #000;
+      width:300px;
+      margin: 5px;
+      display: flex;
+      background-color: white;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .box2 {
+      /* width: 100px;
+      height: 100px; */
+      border: 2px solid #000;
+      margin: 5px;
+      background-color: white;
+      width:300px;
+    
+      /* display: flex; */
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    
+    .jstree-default-responsive .jstree-wholerow {
+      border-top:  none !important;
+      border-bottom: none !important;
+      background: none!important;
+    }
+    
+    
+    .mouse {
+      font-size: 60px;
+      animation: shake 0.4s infinite; /* Added "s" after the duration */
+    }
+    
+    @keyframes shake {
+      0% {
+        transform: rotate(45deg); /* Use "transform" and "rotate" here */
+      }
+      50% {
+        transform: rotate(-45deg); /* Use "transform" and "rotate" here */
+      }
+      100% {
+        transform: rotate(0deg); /* Use "transform" and "rotate" here */
+      }
+    }
+    
+    .o_blockUI{
+      display: none !important;
+    } 

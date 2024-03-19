@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+
+access_is_historique_calcule,is_historique.calcule,model_is_historique_calcule,histo_super_admin,1,1,1,1
+access_is_historique_calcule,is_historique.calcule,model_is_historique_calcule,histo_admin,1,1,1,1
+access_is_historique_calcule,is_historique.calcule,model_is_historique_calcule,histo_user,1,1,1,1

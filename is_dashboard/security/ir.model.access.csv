@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+
+access_is_dashboard_dashboard,is_dashboard.dashboard,model_is_dashboard_dashboard,,1,0,0,0
+access_is_dashboard_dashboard_day,is_dashboard.dashboard_day,model_is_dashboard_dashboard_day,,1,0,0,0
+access_is_dashboard_bacs,is_dashboard.bacs,model_is_dashboard_bacs,,1,0,0,0
+

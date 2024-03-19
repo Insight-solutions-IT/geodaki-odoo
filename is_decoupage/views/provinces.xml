@@ -1,0 +1,107 @@
+<odoo>
+    <data>
+
+        #--------------------------------------GESTION DES PROVINCES -----------------------------------------
+        <record id="view_is_decoupage_provinces_area_form" model="ir.ui.view">
+            <field name="name">view.is_decoupage.provinces.form</field>
+            <field name="model">is_decoupage.provinces</field>
+            <field name="arch" type="xml">
+                <form string="Provinces">
+                    <sheet>
+                        <header class="header-black">
+                            <button string="Convertir Geom en GShape" type="object" name="update_gshape_from_geom"
+                                    class="btn-red"/>
+                            <button string="Tous Convertir" type="object" name="update_all_gshapes"
+                                    class="btn-green"/>
+                        </header>
+                        <group>
+                            <group>
+                                <field name="gshape_name" required="1" string="Province" placeholder="Nom de la province"/>
+                                <field name="region" required="1" string="Région" />
+                                <field name="gshape_color" string="Couleur de la province" widget="color"/>
+                                <field name="population" required="1" />
+                                <field name="menage" required="1" string="Nombre de ménages" />
+                                <field name="menage_marocains" required="1" string="Narocains" />
+                                <field name="menage_etrangers" required="1" string="Etrangers" />
+                            </group>
+                            <group>
+                                <field name="gshape_type" invisible="1"/>
+                                <label for="gshape_area"/>
+                                <div>
+                                    <field name="gshape_area" class="oe_inline" nolabel="1"/>
+                                    <span>m</span>
+                                    <sup>2</sup>
+                                </div>
+                                <label for="gshape_radius" attrs="{'invisible':[('gshape_type', '!=', 'circle')]}"/>
+                                <div attrs="{'invisible':[('gshape_type', '!=', 'circle')]}">
+                                    <field name="gshape_radius" class="oe_inline" nolabel="1"/>
+                                    <span>m</span>
+                                </div>
+                                <label for="gshape_width" attrs="{'invisible':[('gshape_type', '!=', 'rectangle')]}"/>
+                                <div attrs="{'invisible':[('gshape_type', '!=', 'rectangle')]}">
+                                    <field name="gshape_width" nolabel="1" class="oe_inline"/>
+                                    <span>m</span>
+                                </div>
+                                <label for="gshape_height" attrs="{'invisible':[('gshape_type', '!=', 'rectangle')]}"/>
+                                <div attrs="{'invisible':[('gshape_type', '!=', 'rectangle')]}">
+                                    <field name="gshape_height" nolabel="1" class="oe_inline"/>
+                                    <span>m</span>
+                                </div>
+                            </group>
+                        </group>
+                        <field name="gshape_description" placeholder="Description"/>
+<!--                        <separator string="Polygon Lines" attrs="{'invisible':[('gshape_type', '!=', 'polygon')]}"/>-->
+<!--                        <field nolabel="1" class="oe_inline" name="gshape_polygon_lines"-->
+<!--                               attrs="{'invisible':[('gshape_type', '!=', 'polygon')]}"/>-->
+                        <field name="gshape_paths" widget="google_map_drawing"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_is_decoupage_provinces_area_tree" model="ir.ui.view">
+            <field name="name">view.is_decoupage.provinces.tree</field>
+            <field name="model">is_decoupage.provinces</field>
+            <field name="arch" type="xml">
+                <tree string="Provinces">
+
+                    <field name="gshape_name"/>
+                    <field name="gshape_type"/>
+                    <field name="gshape_area"/>
+                    <field name="gshape_radius"/>
+                    <field name="gshape_description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_is_decoupage_provinces_map" model="ir.ui.view">
+            <field name="name">view.is_decoupage.provinces.map</field>
+            <field name="model">is_decoupage.provinces</field>
+            <field name="arch" type="xml">
+                <google_map js_class="google_map_drawing"
+                            string="Provinces"
+                            sidebar_title="gshape_name"
+                            sidebar_subtitle="id">
+                    <field name="id"/>
+                    <field name="gshape_name"/>
+                    <field name="gshape_description"/>
+                    <field name="gshape_type"/>
+                    <field name="gshape_radius"/>
+                    <field name="gshape_area"/>
+                    <field name="gshape_paths"/>
+                    <field name="gshape_height"/>
+                    <field name="gshape_width"/>
+                    <field name="gshape_polygon_lines"/>
+                </google_map>
+            </field>
+        </record>
+
+        <record id="action_is_decoupage_provinces_map" model="ir.actions.act_window">
+            <field name="name">GESTION DES PROVINCES</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">is_decoupage.provinces</field>
+            <field name="view_mode">google_map,tree,form</field>
+        </record>
+
+    </data>
+</odoo>

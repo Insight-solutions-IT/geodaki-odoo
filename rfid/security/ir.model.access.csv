@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rfid_rfid,rfid.rfid,model_rfid_rfid,base.group_user,1,1,1,1
+access_is_rfid_vrfid,is_rfid.vrfid,model_is_rfid_vrfid,base.group_user,1,1,1,1
+access_is_rfid_readed_bacs,is_rfid.readed_bacs,model_is_rfid_readed_bacs,base.group_user,1,1,1,1
+access_is_rfid_readed_bacs_in_cir,is_rfid.readed_bacs_in_cir,model_is_rfid_readed_bacs_in_cir,base.group_user,1,1,1,1
+access_is_rfid_readed_bacs_in_zone,is_rfid.readed_bacs_in_zone,model_is_rfid_readed_bacs_in_zone,base.group_user,1,1,1,1
